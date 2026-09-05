@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CONTACT — Noctiluca / 綿森りこ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --rose:#b9577c;
+  --rose-soft:#d47c9b;
+  --paper:#fcebed;
+  --pink:#f7dce5;
+  --blue:#d9e8f4;
+  --gold:#d9ad78;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  color:var(--rose);
+  font-family:"Noto Serif JP",serif;
+  overflow-x:hidden;
+}
+
+/* =========================
+   背景
+   ========================= */
+
+.background{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  background:
+    #f9e3e9 url("works-marble-bg.png?v=4")
+    center top / cover no-repeat;
+  z-index:-10;
+  pointer-events:none;
+}
+
+/* =========================
+   ページ本体
+   ========================= */
+
+.page{
+  position:relative;
+  min-height:100vh;
+}
+
+/* =========================
+   ヘッダー
+   ========================= */
+
+header{
+  position:relative;
+  z-index:10;
+  height:100px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 5.5vw;
+
+  font-family:"Cormorant Garamond",serif;
+  letter-spacing:.28em;
+  font-size:14px;
+}
+
+.nav{
+  display:flex;
+  gap:42px;
+  align-items:center;
+}
+
+.nav a{
+  color:var(--rose);
+  text-decoration:none;
+  position:relative;
+}
+
+.nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-11px;
+  height:1px;
+  background:var(--rose);
+}
+
+/* =========================
+   月
+   ========================= */
+
+.moon{
+  position:absolute;
+  left:50%;
+  top:48px;
+  transform:translateX(-50%);
+
+  width:58px;
+  height:58px;
+}
+
+.moon::before{
+  content:"";
+  position:absolute;
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+  background:var(--rose);
+
+  left:4px;
+  top:5px;
+}
+
+.moon::after{
+  content:"";
+  position:absolute;
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+  background:#f9e5eb;
+
+  left:16px;
+  top:-1px;
+}
+
+.star{
+  position:absolute;
+  right:0;
+  top:0;
+
+  font-family:serif;
+  font-size:19px;
+}
+
+/* =========================
+   CONTACT ヒーロー
+   ========================= */
+
+.contact-hero{
+  position:relative;
+  z-index:5;
+
+  text-align:center;
+
+  padding-top:55px;
+}
+
+/* LET'S CONNECT */
+
+.kicker{
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:15px;
+  letter-spacing:.42em;
+
+  margin-bottom:17px;
+}
+
+.kicker-line{
+  width:260px;
+  height:1px;
+
+  background:rgba(185,87,124,.45);
+
+  margin:0 auto 24px;
+
+  position:relative;
+}
+
+.kicker-line::after{
+  content:"✦";
+
+  position:absolute;
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  background:#f9e3e9;
+
+  padding:0 10px;
+
+  font-size:16px;
+}
+
+/* CONTACT */
+
+.contact-hero h1{
+  margin:0;
+
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:88px;
+  line-height:.9;
+
+  font-weight:500;
+
+  letter-spacing:.08em;
+}
+
+.contact-underline{
+  width:300px;
+  height:28px;
+
+  margin:4px auto 8px;
+
+  border-bottom:2px solid var(--rose-soft);
+
+  border-radius:50%;
+
+  transform:rotate(-3deg);
+}
+
+.contact-jp{
+  font-size:23px;
+  letter-spacing:.45em;
+
+  margin-left:.45em;
+}
+
+.contact-intro{
+  margin-top:38px;
+
+  font-size:15px;
+  line-height:2.2;
+
+  letter-spacing:.12em;
+}
+
+/* =========================
+   飾り
+   ========================= */
+
+.ornament{
+  position:absolute;
+
+  width:1px;
+  height:300px;
+
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    rgba(185,87,124,.65),
+    transparent
+  );
+
+  z-index:2;
+}
+
+.ornament.left{
+  left:9%;
+  top:350px;
+}
+
+.ornament.right{
+  right:9%;
+  top:220px;
+}
+
+.ornament::before{
+  content:"✦";
+
+  position:absolute;
+  left:50%;
+  top:45px;
+
+  transform:translateX(-50%);
+
+  font-size:16px;
+}
+
+.ornament::after{
+  content:"☽";
+
+  position:absolute;
+  left:50%;
+  top:120px;
+
+  transform:translateX(-50%);
+
+  font-size:48px;
+
+  font-family:serif;
+}
+
+/* =========================
+   CONTACT FORM
+   ========================= */
+
+.contact-wrap{
+  position:relative;
+  z-index:5;
+
+  width:min(560px,84vw);
+
+  margin:48px auto 0;
+}
+
+.form-group{
+  margin-bottom:28px;
+}
+
+.form-label{
+  display:block;
+
+  margin-bottom:9px;
+
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:15px;
+  letter-spacing:.25em;
+}
+
+.form-label span{
+  font-family:"Noto Serif JP",serif;
+
+  font-size:11px;
+
+  letter-spacing:.15em;
+
+  margin-left:10px;
+}
+
+input,
+textarea{
+  width:100%;
+
+  border:1px solid rgba(185,87,124,.25);
+
+  background:rgba(255,255,255,.60);
+
+  border-radius:12px;
+
+  padding:15px 18px;
+
+  color:var(--rose);
+
+  font-family:"Noto Serif JP",serif;
+
+  font-size:14px;
+
+  outline:none;
+}
+
+input{
+  height:50px;
+}
+
+textarea{
+  height:135px;
+
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus{
+  border-color:rgba(185,87,124,.55);
+
+  background:rgba(255,255,255,.75);
+}
+
+/* =========================
+   SEND
+   ========================= */
+
+.send{
+  display:block;
+
+  width:320px;
+
+  max-width:80vw;
+
+  height:55px;
+
+  margin:38px auto 0;
+
+  border:0;
+
+  border-radius:30px;
+
+  background:#c87896;
+
+  color:white;
+
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:15px;
+
+  letter-spacing:.38em;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+}
+
+.send:hover{
+  transform:translateY(-2px);
+
+  background:#b9577c;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.thanks{
+  text-align:center;
+
+  margin:65px auto 90px;
+
+  font-family:"Cormorant Garamond",serif;
+
+  letter-spacing:.35em;
+
+  font-size:13px;
+}
+
+.thanks-line{
+  width:220px;
+
+  height:1px;
+
+  background:rgba(185,87,124,.4);
+
+  margin:0 auto 22px;
+
+  position:relative;
+}
+
+.thanks-line::after{
+  content:"✦";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  background:#f9e3e9;
+
+  padding:0 10px;
+}
+
+/* =========================
+   スマホメニュー
+   ========================= */
+
+.menu-button{
+  display:none;
+}
+
+.mobile-menu{
+  display:none;
+}
+
+@media(max-width:760px){
+
+  header{
+    height:85px;
+  }
+
+  header .nav{
+    display:none;
+  }
+
+  .menu-button{
+    display:flex;
+
+    position:fixed;
+
+    top:18px;
+    left:18px;
+
+    width:52px;
+    height:52px;
+
+    padding:10px;
+
+    border:none;
+    border-radius:12px;
+
+    background:rgba(255,248,250,.92);
+
+    z-index:1000;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:6px;
+
+    cursor:pointer;
+  }
+
+  .menu-button span{
+    display:block;
+
+    width:29px;
+    height:4px;
+
+    border-radius:4px;
+
+    background:#d889aa;
+  }
+
+  .mobile-menu{
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    padding:100px 30px 40px;
+
+    background:#fff6f9;
+
+    z-index:900;
+  }
+
+  .mobile-menu.open{
+    display:flex;
+
+    flex-direction:column;
+  }
+
+  .mobile-menu a{
+    display:block;
+
+    padding:20px 10px;
+
+    border-bottom:1px solid rgba(216,137,170,.25);
+
+    color:#a56580;
+
+    text-decoration:none;
+
+    font-family:"Cormorant Garamond","Noto Serif JP",serif;
+
+    font-size:19px;
+
+    letter-spacing:.2em;
+
+    text-align:center;
+  }
+
+  .moon{
+    top:34px;
+  }
+
+  .contact-hero{
+    padding-top:40px;
+  }
+
+  .kicker{
+    font-size:12px;
+  }
+
+  .kicker-line{
+    width:190px;
+  }
+
+  .contact-hero h1{
+    font-size:58px;
+  }
+
+  .contact-underline{
+    width:220px;
+  }
+
+  .contact-jp{
+    font-size:17px;
+  }
+
+  .contact-intro{
+    width:85vw;
+
+    margin:30px auto 0;
+
+    font-size:12px;
+
+    line-height:2;
+  }
+
+  .contact-wrap{
+    width:84vw;
+
+    margin-top:40px;
+  }
+
+  .form-group{
+    margin-bottom:22px;
+  }
+
+  .form-label{
+    font-size:13px;
+  }
+
+  input{
+    height:48px;
+  }
+
+  textarea{
+    height:125px;
+  }
+
+  .send{
+    width:270px;
+
+    height:52px;
+
+    margin-top:30px;
+  }
+
+  .ornament.left{
+    left:6%;
+    top:380px;
+
+    height:210px;
+  }
+
+  .ornament.right{
+    right:6%;
+    top:180px;
+
+    height:210px;
+  }
+
+  .ornament::after{
+    font-size:38px;
+  }
+
+  .thanks{
+    margin-bottom:60px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 背景はここだけ。固定される -->
+<div class="background"></div>
+
+<div class="page">
+
+<header>
+
+  <nav class="nav">
+    <a href="index.html">HOME</a>
+    <a href="works.html">WORKS</a>
+    <a href="about.html">ABOUT</a>
+  </nav>
+
+  <div class="moon">
+    <span class="star">✦</span>
+  </div>
+
+  <nav class="nav">
+    <a href="exhibition.html">EXHIBITION</a>
+    <a href="shop.html">SHOP</a>
+    <a href="contact.html" class="active">CONTACT</a>
+  </nav>
+
+  <!-- スマホ用 -->
+  <button class="menu-button" id="menuButton" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+
+<!-- スマホ用メニュー -->
+
+<nav class="mobile-menu" id="mobileMenu">
+
+  <a href="index.html">HOME</a>
+  <a href="works.html">WORKS</a>
+  <a href="about.html">ABOUT</a>
+  <a href="exhibition.html">EXHIBITION</a>
+  <a href="shop.html">SHOP</a>
+  <a href="contact.html">CONTACT</a>
+
+</nav>
+
+
+<!-- CONTACT -->
+
+<section class="contact-hero">
+
+  <div class="kicker">
+    LET'S CONNECT
+  </div>
+
+  <div class="kicker-line"></div>
+
+  <h1>CONTACT</h1>
+
+  <div class="contact-underline"></div>
+
+  <div class="contact-jp">
+    ご連絡はこちらから
+  </div>
+
+  <div class="contact-intro">
+    お仕事のご依頼・ご質問・ご感想など、<br>
+    お気軽にお問い合わせください。
+  </div>
+
+</section>
+
+
+<!-- 華奢な飾り -->
+
+<div class="ornament left"></div>
+<div class="ornament right"></div>
+
+
+<!-- FORM -->
+
+<main class="contact-wrap">
+
+  <form>
+
+    <div class="form-group">
+
+      <label class="form-label">
+        NAME
+        <span>お名前（任意）</span>
+      </label>
+
+      <input
+        type="text"
+        name="name"
+        autocomplete="name"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label class="form-label">
+        EMAIL
+        <span>メールアドレス（必須）</span>
+      </label>
+
+      <input
+        type="email"
+        name="email"
+        required
+        autocomplete="email"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label class="form-label">
+        MESSAGE
+        <span>メッセージ（必須）</span>
+      </label>
+
+      <textarea
+        name="message"
+        required
+      ></textarea>
+
+    </div>
+
+
+    <button type="submit" class="send">
+      SEND　✦
+    </button>
+
+  </form>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<div class="thanks">
+
+  <div class="thanks-line"></div>
+
+  THANK YOU<br>
+  FOR REACHING OUT
+
+</div>
+
+
+</div>
+
+
+<script>
+
+const menuButton =
+  document.getElementById("menuButton");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+
+menuButton.addEventListener("click", () => {
+
+  mobileMenu.classList.toggle("open");
+
+});
+
+
+mobileMenu.querySelectorAll("a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    mobileMenu.classList.remove("open");
+
+  });
+
+});
+
+
+</script>
+
+</body>
+</html>
