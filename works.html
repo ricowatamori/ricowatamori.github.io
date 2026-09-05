@@ -8,44 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
 
-  
-  /* 作品06〜09：最初は少し下に隠す */
-.a6,
-.a7,
-.a8,
-.a9 {
-  opacity: 0;
-  transform: translateY(100px) scale(0.72);
-}
 
-/* スクロールで「ぽわん」 */
-.a6.show,
-.a7.show,
-.a8.show,
-.a9.show {
-  animation: bubbleIn 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
-}
-
-@keyframes bubbleIn {
-  0% {
-    opacity: 0;
-    transform: translateY(100px) scale(0.72);
-  }
-
-  55% {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.06);
-  }
-
-  75% {
-    transform: translateY(4px) scale(0.97);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
   
 <style>
 /* スクロールで出てくる作品 */
@@ -921,7 +884,39 @@ footer{
   }
 
 }
-  
+
+/* WORKS 06〜09 スクロール表示 */
+.a6,
+.a7,
+.a8,
+.a9 {
+  opacity: 0;
+  transform: translateY(100px) scale(0.72);
+}
+
+.a6.show,
+.a7.show,
+.a8.show,
+.a9.show {
+  animation: bubbleIn 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+@keyframes bubbleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.72);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.06);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 </style>
 </head>
 
