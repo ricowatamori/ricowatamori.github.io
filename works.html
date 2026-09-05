@@ -8,37 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
 
-
-  
 <style>
-/* スクロールで出てくる作品 */
-.gallery .scroll-art {
-  opacity: 0;
-  transform: translateY(100px) scale(0.72) rotate(var(--rotation));
-}
-
-/* 画面に入ったら「ぽわん」 */
-.gallery .scroll-art.show {
-  animation: bubbleIn 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
-}
-
-@keyframes bubbleIn{
-  0%{
-    opacity:0;
-    transform:translateY(120px) scale(.75);
-  }
-
-  60%{
-    opacity:1;
-    transform:translateY(-12px) scale(1.03);
-  }
-
-  100%{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-  :root{
+:root{
   --rose:#b9577c;
   --rose-soft:#d47c9b;
   --paper:#fcebed;
@@ -48,13 +19,12 @@
   --gold:#d9ad78;
 }
 
-  
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   color:var(--rose);
-  background:#f9e3e9 url("works-marble-bg.png?v=4") center top / cover fixed no-repeat;
+  background:#f9e3e9 url("works-marble-bg.png?v=5") center top / cover fixed no-repeat;
   font-family:"Noto Serif JP",serif;
   overflow-x:hidden;
 }
@@ -216,7 +186,7 @@ header{
   position:relative;
   z-index:6;
   width:min(1160px,92vw);
-  min-height:2700px;
+  min-height:1030px;
   margin:25px auto 0;
 }
 
@@ -233,19 +203,61 @@ header{
   cursor:pointer;
   transition:transform .45s ease, box-shadow .45s ease;
 }
+
+/* スクロールで、泡のように下から「ぽよん〜」と上がってくる */
+.art.scroll-art{
+  opacity:0;
+  transform:translateY(120px) scale(.75);
+}
+
+.art.scroll-art.show{
+  animation:bubbleIn .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+@keyframes bubbleIn{
+  0%{
+    opacity:0;
+    transform:translateY(120px) scale(.75);
+  }
+  55%{
+    opacity:1;
+    transform:translateY(-12px) scale(1.03);
+  }
+  72%{
+    transform:translateY(4px) scale(.99);
+  }
+  86%{
+    transform:translateY(-2px) scale(1.01);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* 一個ずつ少しだけ時間差をつける */
+.a1.scroll-art{animation-delay:0s}
+.a2.scroll-art{animation-delay:.08s}
+.a3.scroll-art{animation-delay:.16s}
+.a4.scroll-art{animation-delay:.06s}
+.a5.scroll-art{animation-delay:.14s}
+.a6.scroll-art{animation-delay:.22s}
+.a7.scroll-art{animation-delay:.08s}
+.a8.scroll-art{animation-delay:.16s}
+.a9.scroll-art{animation-delay:.24s}
+
 .art:hover{
   transform:scale(1.035);
   box-shadow:
     0 15px 34px rgba(164,105,130,.22),
     inset 0 0 0 5px rgba(255,255,255,.4);
 }
-.art img,
-.scroll-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
+.art img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+  background:rgba(255,255,255,.16);
 }
 
 .a1{width:315px;height:315px;left:7%;top:25px}
@@ -257,13 +269,7 @@ header{
 .a7{width:205px;height:205px;left:11%;top:690px}
 .a8{width:180px;height:180px;left:43%;top:745px}
 .a9{width:230px;height:230px;right:17%;top:700px}
-.a10{width:210px;height:210px;left:8%;top:1020px}
-.a11{width:260px;height:260px;right:8%;top:1160px}
-.a12{width:190px;height:190px;left:42%;top:1350px}
-.a13{width:240px;height:240px;left:12%;top:1510px}
-.a14{width:200px;height:200px;right:14%;top:1660px}
-.a15{width:280px;height:280px;left:38%;top:1840px}
-  
+
 .label{
   position:absolute;
   z-index:7;
@@ -272,7 +278,6 @@ header{
   line-height:1.8;
   text-align:center;
   white-space:nowrap;
-  display:none;
 }
 .l1{left:17%;top:344px}
 .l2{left:61%;top:266px}
@@ -419,520 +424,40 @@ footer{
 }
 
 @media(max-width:760px){
-
-  header{
-    height:75px;
-    padding:0 20px;
-    font-size:11px;
-  }
-
-  .nav{
-    gap:16px;
-  }
-
-  .moon{
-    top:37px;
-    transform:translateX(-50%) scale(.72);
-  }
-
-  .hero{
-    padding-top:40px;
-  }
-
-  .hero h1{
-    font-size:58px;
-  }
-
-  .underline{
-    width:220px;
-  }
-
-  .jp{
-    font-size:18px;
-  }
-
-  .sub{
-    font-size:10px;
-    letter-spacing:.22em;
-  }
-
-  .side{
-    display:none;
-  }
-
-
-  /* =========================
-     スマホ用 WORKS
-     ========================= */
-
+  header{height:75px;padding:0 20px;font-size:11px}
+  .nav{gap:16px}
+  .moon{top:37px;transform:translateX(-50%) scale(.72)}
+  .hero{padding-top:40px}
+  .hero h1{font-size:58px}
+  .underline{width:220px}
+  .jp{font-size:18px}
+  .sub{font-size:10px;letter-spacing:.22em}
+  .side{display:none}
   .gallery{
     width:94vw;
-    min-height:520vw;
-    margin:25px auto 0;
+    min-height:1040px;
+    margin-top:20px;
   }
-
-  .art{
-    position:absolute;
-    overflow:hidden;
-    border-radius:50%;
-  }
-
-  .art img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-
-    /* 少しだけ透けさせて背景となじませる */
-    opacity:.82;
-
-    /* 彩度をほんの少し抑えてギラギラ感を軽減 */
-    filter:saturate(.82);
-  }
-
-
-  /* =========================
-     作品配置
-     ========================= */
-
-  .a1{
-    width:26vw;
-    height:26vw;
-    left:9vw;
-    top:4vw;
-  }
-
-  .a2{
-    width:21vw;
-    height:21vw;
-    right:10vw;
-    left:auto;
-    top:9vw;
-  }
-
-  .a3{
-    width:17vw;
-    height:17vw;
-    right:7vw;
-    top:38vw;
-  }
-
-  .a4{
-    width:18vw;
-    height:18vw;
-    left:8vw;
-    top:43vw;
-  }
-
-  .a5{
-    width:24vw;
-    height:24vw;
-    left:38vw;
-    top:35vw;
-  }
-
-  .a6{
-    width:19vw;
-    height:19vw;
-    right:10vw;
-    top:69vw;
-  }
-
-  .a7{
-    width:18vw;
-    height:18vw;
-    left:13vw;
-    top:82vw;
-  }
-
-  .a8{
-    width:17vw;
-    height:17vw;
-    left:41vw;
-    top:78vw;
-  }
-
-  .a9{
-    width:19vw;
-    height:19vw;
-    right:12vw;
-    top:105vw;
-  }
-
-  .a10{
-  width:21vw;
-  height:21vw;
-  left:8vw;
-  top:125vw;
-}
-
-.a11{
-  width:24vw;
-  height:24vw;
-  right:8vw;
-  top:145vw;
-}
-
-.a12{
-  width:18vw;
-  height:18vw;
-  left:40vw;
-  top:170vw;
-}
-
-.a13{
-  width:22vw;
-  height:22vw;
-  left:8vw;
-  top:195vw;
-}
-
-.a14{
-  width:19vw;
-  height:19vw;
-  right:10vw;
-  top:220vw;
-}
-
-.a15{
-  width:25vw;
-  height:25vw;
-  left:38vw;
-  top:250vw;
-}
-
-  /* =========================
-     作品タイトル
-     ========================= */
-
-  .label{
-    font-size:8px;
-    letter-spacing:.18em;
-    line-height:1.7;
-  }
-
-  .l1{
-    left:13%;
-    top:31vw;
-  }
-
-  .l2{
-    left:57%;
-    top:30vw;
-  }
-
-  .l3{
-    right:4%;
-    top:56vw;
-  }
-
-  .l4{
-    left:7%;
-    top:63vw;
-  }
-
-  .l5{
-    left:42%;
-    top:61vw;
-  }
-
-  .l6{
-    right:7%;
-    top:90vw;
-  }
-
-  .l7{
-    left:13%;
-    top:104vw;
-  }
-
-  .l8{
-    left:43%;
-    top:98vw;
-  }
-
-  .l9{
-    right:10%;
-    top:127vw;
-  }
-
-
-  /* =========================
-     背景の飾り
-     ========================= */
-
-  .bubble{
-    transform:scale(.7);
-    opacity:.65;
-  }
-
-  .spark{
-    font-size:17px;
-    opacity:.75;
-  }
-
-
-  /* =========================
-     下部
-     ========================= */
-
-  .bottom{
-    padding:0 20px 105px;
-    margin-top:5vw;
-  }
-
-  .brand{
-    font-size:22px;
-  }
-
-  .brand small{
-    font-size:8px;
-  }
-
-  .tags{
-    font-size:8px;
-  }
-
-  .home{
-    bottom:48px;
-    padding:10px 25px;
-    font-size:10px;
-  }
-
-
-  /* =========================
-     作品拡大
-     ========================= */
-
-  .modal-box{
-    grid-template-columns:1fr;
-    max-height:90vh;
-    overflow:auto;
-  }
-
-  .modal-image{
-    min-height:320px;
-  }
-
-  .modal-info{
-    padding:25px;
-  }
-
-}
-
-  /* ==============================
-   スマホ用ハンバーガーメニュー
-   ============================== */
-
-.menu-button{
-  display:none;
-}
-
-.mobile-menu{
-  display:none;
-}
-
-@media(max-width:760px){
-
-  .menu-button{
-    display:flex;
-    position:fixed;
-    top:18px;
-    left:18px;
-    width:52px;
-    height:52px;
-    padding:10px;
-    border:none;
-    border-radius:12px;
-    background:rgba(255,248,250,.92);
-    z-index:1000;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:6px;
-    cursor:pointer;
-  }
-
-  .menu-button span{
-    display:block;
-    width:29px;
-    height:4px;
-    border-radius:4px;
-    background:#d889aa;
-  }
-
-  .mobile-menu{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    padding:100px 30px 40px;
-    background:#fff6f9;
-    z-index:900;
-  }
-
-  .mobile-menu.open{
-    display:flex;
-    flex-direction:column;
-  }
-
-  .mobile-menu a{
-    display:block;
-    padding:20px 10px;
-    border-bottom:1px solid rgba(216,137,170,.25);
-    color:#a56580;
-    text-decoration:none;
-    font-family:"Cormorant Garamond","Noto Serif JP",serif;
-    font-size:19px;
-    letter-spacing:.2em;
-    text-align:center;
-  }
-
-  header .nav{
-    display:none;
-  }
-
-}
-
-
-/* ==============================
-   WORKS 06〜15
-   スクロールで「ぽわん」
-   ============================== */
-
-.a6,
-.a7,
-.a8,
-.a9,
-.a10,
-.a11,
-.a12,
-.a13,
-.a14,
-.a15{
-  opacity:0;
-  transform:translateY(100px) scale(.72);
-}
-
-.a6.show,
-.a7.show,
-.a8.show,
-.a9.show,
-.a10.show,
-.a11.show,
-.a12.show,
-.a13.show,
-.a14.show,
-.a15.show{
-  animation:bubbleIn .9s cubic-bezier(.22,1,.36,1) forwards;
-}
-
-@keyframes bubbleIn{
-
-  0%{
-    opacity:0;
-    transform:translateY(100px) scale(.72);
-  }
-
-  55%{
-    opacity:1;
-    transform:translateY(-10px) scale(1.06);
-  }
-
-  75%{
-    transform:translateY(4px) scale(.97);
-  }
-
-  100%{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-
-}
-
-
-/* ==============================
-   スマホ用 作品10〜15のタイトル
-   ============================== */
-
-@media(max-width:760px){
-
-  .l10{
-    left:12%;
-    top:150vw;
-  }
-
-  .l11{
-    right:10%;
-    top:172vw;
-  }
-
-  .l12{
-    left:40%;
-    top:194vw;
-  }
-
-  .l13{
-    left:12%;
-    top:220vw;
-  }
-
-  .l14{
-    right:11%;
-    top:245vw;
-  }
-
-  .l15{
-    left:40%;
-    top:278vw;
-  }
-
-}
-  
-/* WORKS 06〜09 スクロール表示 */
-.a6,
-.a7,
-.a8,
-.a9,
-.a10,
-.a11,
-.a12,
-.a13,
-.a14,
-.a15 {
-  opacity: 0;
-  transform: translateY(100px) scale(0.72);
-}
-
-.a6.show,
-.a7.show,
-.a8.show,
-.a9.show,
-.a10.show,
-.a11.show,
-.a12.show,
-.a13.show,
-.a14.show,
-.a15.show {
-  animation: bubbleIn 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
-}
-
-@keyframes bubbleIn {
-  0% {
-    opacity: 0;
-    transform: translateY(100px) scale(0.72);
-  }
-
-  55% {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.06);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  .a1{width:210px;height:210px;left:2%;top:15px}
+  .a2{width:160px;height:160px;right:3%;left:auto;top:40px}
+  .a3{width:120px;height:120px;right:4%;top:240px}
+  .a4{width:135px;height:135px;left:1%;top:300px}
+  .a5{width:200px;height:200px;left:29%;top:255px}
+  .a6{width:155px;height:155px;right:2%;top:465px}
+  .a7{width:145px;height:145px;left:4%;top:555px}
+  .a8{width:125px;height:125px;left:38%;top:700px}
+  .a9{width:160px;height:160px;right:6%;top:670px}
+  .label{font-size:9px}
+  .l1{left:12%;top:235px}.l2{left:53%;top:207px}.l3{right:5%;top:365px}
+  .l4{left:3%;top:445px}.l5{left:42%;top:465px}.l6{right:5%;top:635px}
+  .l7{left:12%;top:710px}.l8{left:42%;top:840px}.l9{right:10%;top:840px}
+  .bottom{padding:0 20px 80px}
+  .brand{font-size:22px}
+  .tags{font-size:8px}
+  .home{bottom:35px;padding:10px 25px;font-size:10px}
+  .modal-box{grid-template-columns:1fr;max-height:90vh;overflow:auto}
+  .modal-image{min-height:320px}
+  .modal-info{padding:25px}
 }
 </style>
 </head>
@@ -942,37 +467,18 @@ footer{
   <div class="texture"></div>
 
   <header>
-  <nav class="nav">
-    <a href="index.html">HOME</a>
-    <a href="works.html" class="active">WORKS</a>
-    <a href="about.html">ABOUT</a>
-  </nav>
-
-  <div class="moon"><span class="star">✦</span></div>
-
-  <nav class="nav">
-    <a href="exhibition.html">EXHIBITION</a>
-    <a href="shop.html">SHOP</a>
-    <a href="contact.html">CONTACT</a>
-  </nav>
-
-  <!-- スマホ用ハンバーガー -->
-  
-  <button class="menu-button" id="menuButton" aria-label="メニューを開く">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">HOME</a>
-  <a href="works.html">WORKS</a>
-  <a href="about.html">ABOUT</a>
-  <a href="exhibition.html">EXHIBITION</a>
-  <a href="shop.html">SHOP</a>
-  <a href="contact.html">CONTACT</a>
-</div>
+    <nav class="nav">
+      <a href="index.html">HOME</a>
+      <a href="works.html" class="active">WORKS</a>
+      <a href="about.html">ABOUT</a>
+    </nav>
+    <div class="moon"><span class="star">✦</span></div>
+    <nav class="nav">
+      <a href="exhibition.html">EXHIBITION</a>
+      <a href="shop.html">SHOP</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
 
   <section class="hero">
     <h1>WORKS</h1>
@@ -993,21 +499,15 @@ footer{
     <div class="spark s1">✦</div><div class="spark s2">✦</div>
     <div class="spark s3">✦</div><div class="spark s4">✦</div>
 
-    <button class="art a11" data-index="0"><img src="IMG_0691 2.jpg" alt="作品 01"></button>    
-<button class="art a2" data-index="1"><img src="IMG_0692 2.jpg" alt="作品 02"></button>
-<button class="art a3" data-index="2"><img src="IMG_0693 2.jpg" alt="作品 03"></button>
-<button class="art a4" data-index="3"><img src="IMG_0694 2.jpg" alt="作品 04"></button>
-<button class="art a5" data-index="4"><img src="IMG_0695 2.jpg" alt="作品 05"></button>
-<button class="art a6" data-index="5"><img src="IMG_0696 2.jpg" alt="作品 06"></button>
-<button class="art a7" data-index="6"><img src="IMG_0697 2.jpg" alt="作品 07"></button>
-<button class="art a8" data-index="7"><img src="IMG_0698 2.jpg" alt="作品 08"></button>
-<button class="art a9" data-index="8"><img src="IMG_0699 2.jpg" alt="作品 09"></button>
-<button class="art a10" data-index="9"><img src="IMG_0700 2.jpg" alt="作品 10"></button>
-<button class="art a11" data-index="0"><img src="IMG_0701 2.jpg" alt="作品 11"></button>
-    <button class="art a12" data-index="1"><img src="IMG_0702 2.jpg" alt="作品 12"></button>
-    <button class="art a13" data-index="2"><img src="IMG_0703 2.jpg" alt="作品 13"></button>
-    <button class="art a14" data-index="3"><img src="IMG_0704 2.jpg" alt="作品 14"></button>
-    <button class="art a15" data-index="4"><img src="IMG_0705 2.jpg" alt="作品 15"></button>
+    <button class="art scroll-art a1" data-index="0"><img src="IMG_0701.jpg" alt="作品 01"></button>
+    <button class="art scroll-art a2" data-index="1"><img src="IMG_0702.jpg" alt="作品 02"></button>
+    <button class="art scroll-art a3" data-index="2"><img src="IMG_0703.jpg" alt="作品 03"></button>
+    <button class="art scroll-art a4" data-index="3"><img src="IMG_0704.jpg" alt="作品 04"></button>
+    <button class="art scroll-art a5" data-index="4"><img src="IMG_0705.jpg" alt="作品 05"></button>
+    <button class="art scroll-art a6" data-index="5"><img src="IMG_0706.jpg" alt="作品 06"></button>
+    <button class="art scroll-art a7" data-index="6"><img src="IMG_0707.jpg" alt="作品 07"></button>
+    <button class="art scroll-art a8" data-index="7"><img src="IMG_0708.jpg" alt="作品 08"></button>
+    <button class="art scroll-art a9" data-index="8"><img src="IMG_0709.jpg" alt="作品 09"></button>
 
     <div class="label l1">WORK 01<br><span>PAINTING</span></div>
     <div class="label l2">WORK 02<br><span>PAINTING</span></div>
@@ -1018,12 +518,6 @@ footer{
     <div class="label l7">WORK 07<br><span>PAINTING</span></div>
     <div class="label l8">WORK 08<br><span>ILLUSTRATION</span></div>
     <div class="label l9">WORK 09<br><span>PAINTING</span></div>
-    <div class="label l10">WORK 10<br><span>PAINTING</span></div>
-    <div class="label l11">WORK 11<br><span>PAINTING</span></div>
-    <div class="label l12">WORK 12<br><span>PAINTING</span></div>
-    <div class="label l13">WORK 13<br><span>PAINTING</span></div>
-    <div class="label l14">WORK 14<br><span>PAINTING</span></div>
-    <div class="label l15">WORK 15<br><span>PAINTING</span></div>
   </main>
 
   <div class="bottom">
@@ -1047,49 +541,31 @@ footer{
   </div>
 </div>
 
- <script>
-
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuButton.addEventListener("click", () => {
-  mobileMenu.classList.toggle("open");
-});
-
-mobileMenu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-  });
-});
-
-
-// 作品06〜15をスクロールで「ぽわん」と表示
-const scrollWorks = document.querySelectorAll(
-  ".art.a6, .art.a7, .art.a8, .art.a9, .art.a10, .art.a11, .art.a12, .art.a13, .art.a14, .art.a15"
-);
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.2
-});
-
-scrollWorks.forEach(work => {
-  observer.observe(work);
-});
-
-
-// 作品拡大
+<script>
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
 const close = document.getElementById("close");
 
+/* 作品が画面に入ったら、下から「ぽよん〜」と一度だけ出す */
+const scrollWorks = document.querySelectorAll(".scroll-art");
+
+const worksObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold:0.2
+});
+
+scrollWorks.forEach(work => {
+  worksObserver.observe(work);
+});
+
+/* 作品拡大 */
 document.querySelectorAll(".art").forEach((art, i) => {
   art.addEventListener("click", () => {
     const img = art.querySelector("img");
@@ -1104,19 +580,13 @@ function closeModal(){
   modal.classList.remove("open");
   modalImg.src = "";
 }
-
 close.addEventListener("click", closeModal);
-
 modal.addEventListener("click", e => {
   if(e.target === modal) closeModal();
 });
-
 document.addEventListener("keydown", e => {
   if(e.key === "Escape") closeModal();
 });
-  
-  
 </script>
-  
 </body>
 </html>
