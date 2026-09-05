@@ -3,80 +3,433 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noctiluca | 綿森りこ</title>
+
+<title>Noctiluca｜綿森りこ</title>
+
 <style>
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: #fceff2;
-    text-align: center;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #fceff2;
+  text-align: center;
+}
+
+/* =========================
+   TOP
+   ========================= */
+
+.top {
+  position: relative;
+  width: 100%;
+  max-width: 1226px;
+  margin: 0 auto;
+}
+
+.top-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   PC用リンク
+   ========================= */
+
+.link {
+  position: absolute;
+  display: block;
+  z-index: 5;
+}
+
+.home {
+  left: 4%;
+  top: 2%;
+  width: 7%;
+  height: 4%;
+}
+
+.works {
+  left: 13%;
+  top: 2%;
+  width: 8%;
+  height: 4%;
+}
+
+.about {
+  left: 23%;
+  top: 2%;
+  width: 8%;
+  height: 4%;
+}
+
+.exhibition {
+  right: 20%;
+  top: 2%;
+  width: 12%;
+  height: 4%;
+}
+
+.shop {
+  right: 11%;
+  top: 2%;
+  width: 7%;
+  height: 4%;
+}
+
+.contact {
+  right: 3%;
+  top: 2%;
+  width: 8%;
+  height: 4%;
+}
+
+/* マウスを乗せたとき */
+.link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================
+   スマホ用メニュー
+   ========================= */
+
+/* PCでは表示しない */
+.menu-button,
+.mobile-menu,
+.mobile-nav-cover {
+  display: none;
+}
+
+
+/* =========================
+   スマートフォン
+   ========================= */
+
+@media screen and (max-width: 700px) {
+
+  /* PC用リンクを消す */
+  .top > .link {
+    display: none;
   }
 
+  /* TOP画像はそのまま縮小 */
   .top {
-    position: relative;
     width: 100%;
-    max-width: 1226px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
   }
 
   .top-image {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
   }
 
-  /* 画像の上に透明なリンクを置きます */
-  .link {
-    position: absolute;
+
+  /* -------------------------
+     上部の元ナビを隠す
+     ------------------------- */
+
+  .mobile-nav-cover {
     display: block;
-    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+
+    background: rgba(252, 239, 242, 0.94);
+
+    z-index: 80;
   }
 
-  .home   { left: 4%;  top: 2%; width: 7%;  height: 4%; }
-  .works  { left: 13%; top: 2%; width: 8%;  height: 4%; }
-  .about  { left: 23%; top: 2%; width: 8%;  height: 4%; }
 
-  .exhibition { right: 20%; top: 2%; width: 12%; height: 4%; }
-  .shop       { right: 11%; top: 2%; width: 7%;  height: 4%; }
-  .contact    { right: 3%;  top: 2%; width: 8%;  height: 4%; }
+  /* -------------------------
+     ハンバーガーボタン
+     ------------------------- */
 
-  /* SCROLL部分 */
-  .scroll-link {
-    left: 44%;
-    top: 86%;
-    width: 12%;
-    height: 9%;
+  .menu-button {
+    display: flex;
+
+    position: fixed;
+    top: 15px;
+    left: 15px;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 10px;
+
+    border: none;
+    background: transparent;
+
+    z-index: 100;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* マウスを乗せた場所だけ、うっすら反応 */
-  .link:hover {
-    background: rgba(255,255,255,.08);
+  .menu-button span {
+    display: block;
+
+    width: 27px;
+    height: 3px;
+
+    border-radius: 3px;
+
+    background: #d889a6;
   }
 
-  @media (max-width: 700px) {
-    .link:hover { background: transparent; }
+
+  /* -------------------------
+     メニュー本体
+     ------------------------- */
+
+  .mobile-menu {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 82px 30px 30px;
+
+    background: rgba(255, 245, 248, 0.98);
+
+    z-index: 90;
+
+    box-shadow:
+      0 5px 20px rgba(150, 100, 120, 0.15);
   }
+
+
+  /* メニューを開いた状態 */
+
+  .mobile-menu.open {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+  }
+
+
+  /* メニュー項目 */
+
+  .mobile-menu a {
+    display: block;
+
+    padding: 18px 10px;
+
+    border-bottom:
+      1px solid rgba(217, 140, 168, 0.25);
+
+    color: #9d6680;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    letter-spacing: 0.18em;
+
+    text-align: center;
+  }
+
+
+  /* 最後の線を消す */
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
+
+  /* タップ時の反応 */
+
+  .mobile-menu a:active {
+    background: rgba(217, 140, 168, 0.08);
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     スマホ用ハンバーガーメニュー
+     ========================= -->
+
+<button
+  class="menu-button"
+  aria-label="メニューを開く"
+  aria-expanded="false">
+
+  <span></span>
+  <span></span>
+  <span></span>
+
+</button>
+
+
+<!-- スマホで元画像のナビ文字を隠す部分 -->
+
+<div class="mobile-nav-cover"></div>
+
+
+<!-- スマホ用メニュー -->
+
+<nav
+  class="mobile-menu"
+  aria-label="スマートフォン用メニュー">
+
+  <a href="index.html">HOME</a>
+
+  <a href="works.html">WORKS</a>
+
+  <a href="about.html">ABOUT</a>
+
+  <a href="exhibition.html">EXHIBITION</a>
+
+  <a href="shop.html">SHOP</a>
+
+  <a href="contact.html">CONTACT</a>
+
+</nav>
+
+
+
+<!-- =========================
+     TOP画像
+     ========================= -->
 
 <div class="top">
 
-  <!-- あなたが選んだTOP画像を、そのまま表示 -->
-  <img class="top-image" src="noctiluca-top.png" alt="Noctiluca 綿森りこ">
+  <img
+    class="top-image"
+    src="noctiluca-top.png"
+    alt="Noctiluca 綿森りこ">
 
-  <!-- 透明なクリックエリア -->
-  <a class="link home" href="index.html" aria-label="HOME"></a>
-  <a class="link works" href="works.html" aria-label="WORKS"></a>
-  <a class="link about" href="about.html" aria-label="ABOUT"></a>
 
-  <a class="link exhibition" href="exhibition.html" aria-label="EXHIBITION"></a>
-  <a class="link shop" href="shop.html" aria-label="SHOP"></a>
-  <a class="link contact" href="contact.html" aria-label="CONTACT"></a>
+  <!-- PC用透明リンク -->
+
+  <a
+    class="link home"
+    href="index.html"
+    aria-label="HOME">
+  </a>
+
+  <a
+    class="link works"
+    href="works.html"
+    aria-label="WORKS">
+  </a>
+
+  <a
+    class="link about"
+    href="about.html"
+    aria-label="ABOUT">
+  </a>
+
+  <a
+    class="link exhibition"
+    href="exhibition.html"
+    aria-label="EXHIBITION">
+  </a>
+
+  <a
+    class="link shop"
+    href="shop.html"
+    aria-label="SHOP">
+  </a>
+
+  <a
+    class="link contact"
+    href="contact.html"
+    aria-label="CONTACT">
+  </a>
 
 </div>
+
+
+
+<!-- =========================
+     メニュー操作
+     ========================= -->
+
+<script>
+
+const menuButton =
+  document.querySelector('.menu-button');
+
+const mobileMenu =
+  document.querySelector('.mobile-menu');
+
+
+menuButton.addEventListener('click', function() {
+
+  const isOpen =
+    mobileMenu.classList.toggle('open');
+
+  menuButton.setAttribute(
+    'aria-expanded',
+    isOpen
+  );
+
+});
+
+
+/* メニュー項目を押したら閉じる */
+
+const menuLinks =
+  document.querySelectorAll('.mobile-menu a');
+
+menuLinks.forEach(function(link) {
+
+  link.addEventListener('click', function() {
+
+    mobileMenu.classList.remove('open');
+
+    menuButton.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+  });
+
+});
+
+</script>
+
 
 </body>
 </html>
