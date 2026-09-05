@@ -23,13 +23,27 @@
     pointer-events: none;
   }
 
-  .top {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 1226px;
-    margin: 0 auto;
-  }
+ * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #fceff2;
+  text-align: center;
+}
+
+.top {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+}
+
+.top-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
   .top-image {
     display: block;
