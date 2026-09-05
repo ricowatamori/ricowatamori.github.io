@@ -82,6 +82,29 @@ body {
   @media (max-width: 700px) {
     .link:hover { background: transparent; }
   }
+   .works-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 140px;
+    margin: 35px auto 80px;
+    color: #a96b7d;
+    text-decoration: none;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .works-scroll .arrow {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .works-scroll:hover {
+    opacity: .65;
+  }
 </style>
 </head>
 
@@ -102,6 +125,12 @@ body {
   <a class="link contact" href="contact.html" aria-label="CONTACT"></a>
 
 </div>
+
+<!-- WORKSへのスクロールリンク -->
+<a href="works.html" class="works-scroll">
+  <span>WORKS</span>
+  <span class="arrow">↓</span>
+</a>
 
 </body>
 </html>
