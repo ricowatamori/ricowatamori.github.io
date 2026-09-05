@@ -9,12 +9,23 @@
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: #fceff2 url("works-marble-bg.png?v=5") center center / cover fixed no-repeat;
+    background: #fceff2;
     text-align: center;
+  }
+
+  /* INDEXの背景を画面に固定して、途中で模様が切り替わらないようにします */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: url("works-marble-bg.png?v=5") center center / cover no-repeat;
+    pointer-events: none;
   }
 
   .top {
     position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 1226px;
     margin: 0 auto;
