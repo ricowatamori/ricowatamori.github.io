@@ -1020,7 +1020,9 @@ footer{
   </div>
 </div>
 
-  const menuButton = document.getElementById("menuButton");
+ <script>
+
+const menuButton = document.getElementById("menuButton");
 const mobileMenu = document.getElementById("mobileMenu");
 
 menuButton.addEventListener("click", () => {
@@ -1033,27 +1035,29 @@ mobileMenu.querySelectorAll("a").forEach(link => {
   });
 });
 
-<script>
-  
-  const scrollWorks = document.querySelectorAll(
-    ".art.a6, .art.a7, .art.a8, .art.a9"
-  );
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    });
+// 作品06〜09をスクロールで「ぽわん」と表示
+const scrollWorks = document.querySelectorAll(
+  ".art.a6, .art.a7, .art.a8, .art.a9"
+);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
   });
+}, {
+  threshold: 0.2
+});
 
-  scrollWorks.forEach(work => {
-    observer.observe(work);
-  });
+scrollWorks.forEach(work => {
+  observer.observe(work);
+});
 
 
- 
+// 作品拡大
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
@@ -1073,47 +1077,16 @@ function closeModal(){
   modal.classList.remove("open");
   modalImg.src = "";
 }
+
 close.addEventListener("click", closeModal);
+
 modal.addEventListener("click", e => {
   if(e.target === modal) closeModal();
 });
+
 document.addEventListener("keydown", e => {
   if(e.key === "Escape") closeModal();
 });
-
-  const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuButton.addEventListener("click", () => {
-  mobileMenu.classList.toggle("open");
-});
-
-mobileMenu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-  });
-});
-   // 作品06〜09をスクロールで「ぽわん」と表示
-const scrollWorks = document.querySelectorAll(
-".art.a6, .art.a7, .art.a8, .art.a9, .label.l6, .label.l7, .label.l8, .label.l9"
-);
-
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.2
-});
-
-scrollWorks.forEach(work => {
-  observer.observe(work);
-});
-   
   
   
 </script>
