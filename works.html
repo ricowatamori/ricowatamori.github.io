@@ -1094,7 +1094,10 @@ mobileMenu.querySelectorAll("a").forEach(link => {
   });
 });
    // 作品06〜09をスクロールで「ぽわん」と表示
-const scrollWorks = document.querySelectorAll(".a6, .a7, .a8, .a9");
+const scrollWorks = document.querySelectorAll(
+ ".art.a6, .art.a7, .art.a8, .art.a9, .label.l6, .label.l7, .label.l8, .label.l9"
+);
+
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1111,30 +1114,6 @@ scrollWorks.forEach(work => {
   observer.observe(work);
 });
    
-/* 作品06〜09：最初は見えない */
-.art.a6,
-.art.a7,
-.art.a8,
-.art.a9,
-.label16,
-.label17,
-.label18,
-.label19 {
-  opacity: 0;
-  transform: translateY(100px) scale(0.72);
-}
-
-/* スクロールでぽわん */
-.art.a6.show,
-.art.a7.show,
-.art.a8.show,
-.art.a9.show,
-.label16.show,
-.label17.show,
-.label18.show,
-.label19.show {
-  animation: bubbleIn 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
-}
   
   
 </script>
