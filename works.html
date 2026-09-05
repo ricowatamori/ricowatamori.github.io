@@ -1038,7 +1038,10 @@ mobileMenu.querySelectorAll("a").forEach(link => {
   });
 });
 
-  // 作品06〜09をスクロールで「ぽわん」と表示
+ 
+  
+<script>
+ // 作品06〜09をスクロールで「ぽわん」と表示
 const scrollWorks = document.querySelectorAll(".a6, .a7, .a8, .a9");
 
 const observer = new IntersectionObserver((entries) => {
@@ -1055,8 +1058,6 @@ const observer = new IntersectionObserver((entries) => {
 scrollWorks.forEach(work => {
   observer.observe(work);
 });
-  
-<script>
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
