@@ -802,6 +802,55 @@ footer{
   }
 }
 
+  /* ==============================
+   WORKS 泡のように浮かぶ作品
+   ============================== */
+
+.gallery {
+  position: relative;
+}
+
+/* 作品の基本状態 */
+.scroll-art {
+  position: absolute;
+
+  opacity: 0;
+  transform: translateY(140px) scale(0.72);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  z-index: 2;
+
+  pointer-events: auto;
+}
+
+/* 下からふわっと出てきた後 */
+.scroll-art.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+
+  animation: bubbleFloat 5s ease-in-out infinite;
+}
+
+/* 泡みたいに、ほんの少し上下する */
+@keyframes bubbleFloat {
+
+  0% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+}
+  
 </style>
 </head>
 
@@ -992,6 +1041,34 @@ mobileMenu.querySelectorAll("a").forEach(link => {
   display:block;
   background:rgba(255,255,255,.16);
 }
+    /* 作品を少し小さくして、泡っぽく */
+.gallery .art,
+.gallery .scroll-art {
+  scale: 0.82;
+}
+
+/* スクロールでふわっと出現 */
+.gallery .art,
+.gallery .scroll-art {
+  transition:
+    opacity 0.8s ease,
+    transform 1s ease,
+    scale 0.8s ease;
+}
+
+/* 泡が浮かび上がる */
+.gallery .show {
+  animation: bubbleFloat 5s ease-in-out infinite;
+}
+
+@keyframes bubbleFloat {
+  0%, 100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -10px;
+  }
+}
 </style>
 
 <script>
@@ -1008,17 +1085,33 @@ const extraWorks = [
   "IMG_0700 2.jpg"
 ];
 
-const positions = [
-  {left:"8%",  top:"80px"},
-  {right:"7%", top:"180px"},
-  {left:"35%", top:"280px"},
-  {right:"15%", top:"380px"},
-  {left:"5%",  top:"480px"},
-  {left:"40%", top:"590px"},
-  {right:"5%", top:"700px"},
-  {left:"15%", top:"810px"},
-  {right:"28%", top:"920px"},
-  {left:"42%", top:"1030px"}
+ const positions = [
+
+  {left:"8%",  top:"80px",   size:"180px", rotate:"-4deg"},
+  {left:"42%", top:"220px",  size:"220px", rotate:"3deg"},
+  {left:"73%", top:"120px",  size:"170px", rotate:"-2deg"},
+
+  {left:"20%", top:"470px",  size:"230px", rotate:"4deg"},
+  {left:"55%", top:"520px",  size:"180px", rotate:"-3deg"},
+  {left:"82%", top:"650px",  size:"220px", rotate:"2deg"},
+
+  {left:"5%",  top:"850px",  size:"210px", rotate:"-3deg"},
+  {left:"35%", top:"900px",  size:"250px", rotate:"3deg"},
+  {left:"68%", top:"980px",  size:"190px", rotate:"-4deg"},
+
+  {left:"15%", top:"1250px", size:"180px", rotate:"2deg"},
+  {left:"48%", top:"1300px", size:"230px", rotate:"-2deg"},
+  {left:"78%", top:"1380px", size:"200px", rotate:"4deg"},
+
+  {left:"3%",  top:"1650px", size:"220px", rotate:"-2deg"},
+  {left:"30%", top:"1720px", size:"190px", rotate:"3deg"},
+  {left:"60%", top:"1680px", size:"240px", rotate:"-4deg"},
+
+  {left:"85%", top:"1850px", size:"180px", rotate:"2deg"},
+  {left:"15%", top:"2100px", size:"240px", rotate:"-3deg"},
+  {left:"50%", top:"2200px", size:"200px", rotate:"3deg"},
+  {left:"75%", top:"2350px", size:"230px", rotate:"-2deg"}
+
 ];
   
 const gallery = document.querySelector(".gallery");
@@ -1028,30 +1121,67 @@ extraWorks.forEach((src, i) => {
   button.className = "scroll-art";
   button.innerHTML = `<img src="${src}" alt="作品 ${i + 10}">`;
 
-  Object.assign(button.style, positions[i]);
+  const pos = positions[i];
+
+button.style.left = pos.left;
+button.style.top = pos.top;
+button.style.width = pos.size;
+button.style.transform = `translateY(140px) scale(0.72) rotate(${pos.rotate})`;
 
   gallery.appendChild(button);
 });
 
 const extraArts = document.querySelectorAll(".scroll-art");
 
-function updateExtraWorks(){
-  const scrollY = window.scrollY;
+// 追加作品を「泡」のように表示
+function updateExtraWorks() {
   const vh = window.innerHeight;
 
   extraArts.forEach((art, i) => {
-    const trigger = vh * (0.55 + i * 0.08);
+    const rect = art.getBoundingClientRect();
 
-    if(scrollY > trigger){
+    // 画面の少し下に来たら、ふわっと出現
+    if (rect.top < vh * 0.92) {
       art.classList.add("show");
-    }else{
-      art.classList.remove("show");
     }
   });
 }
 
-window.addEventListener("scroll", updateExtraWorks);
-updateExtraWorks();
+// 最初は作品01〜05だけ見せる
+document.querySelectorAll(".art").forEach((art, i) => {
+  if (i >= 5) {
+    art.style.opacity = "0";
+    art.style.pointerEvents = "none";
+    art.style.visibility = "hidden";
+  }
+});
+
+// スクロールで作品06〜09もふわっと出す
+function updateFirstWorks() {
+  const vh = window.innerHeight;
+
+  document.querySelectorAll(".art").forEach((art, i) => {
+    if (i < 5) return;
+
+    const rect = art.getBoundingClientRect();
+
+    if (rect.top < vh * 0.9) {
+      art.style.visibility = "visible";
+      art.style.pointerEvents = "auto";
+      art.style.opacity = "1";
+      art.classList.add("show");
+    }
+  });
+}
+
+function updateAllWorks() {
+  updateExtraWorks();
+  updateFirstWorks();
+}
+
+window.addEventListener("scroll", updateAllWorks);
+window.addEventListener("resize", updateAllWorks);
+updateAllWorks();
 </script>
   
 </body>
