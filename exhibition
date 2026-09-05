@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXHIBITION｜Noctiluca｜綿森りこ</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #fceff2;
+  text-align: center;
+  color: #a56580;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+  width: 100%;
+  max-width: 1226px;
+  margin: 0 auto;
+  padding: 34px 20px 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: serif;
+  font-size: 38px;
+  font-weight: normal;
+  letter-spacing: 0.22em;
+}
+
+.header p {
+  margin: 12px 0 0;
+  font-family: serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 20px 28px;
+}
+
+.nav a {
+  color: #a56580;
+  text-decoration: none;
+  font-family: serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+
+.nav a:hover {
+  opacity: 0.65;
+}
+
+/* =========================
+   MAIN
+   ========================= */
+
+.exhibition {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 50px 0 100px;
+}
+
+.event-title {
+  margin: 0;
+  font-family: serif;
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 0.18em;
+}
+
+.event-subtitle {
+  margin: 12px 0 45px;
+  font-family: serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+/* =========================
+   EVENT CARD
+   ========================= */
+
+.event-card {
+  background: #fff6f9;
+  border: 1px solid rgba(216, 137, 170, 0.35);
+  padding: 45px 35px;
+}
+
+.event-card h2 {
+  margin: 0 0 28px;
+  font-family: serif;
+  font-size: 25px;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+}
+
+.event-info {
+  margin: 0 auto 30px;
+  max-width: 600px;
+  font-family: serif;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+.event-info strong {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.message {
+  margin: 30px auto 0;
+  max-width: 650px;
+  font-family: serif;
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   PRICE
+   ========================= */
+
+.price {
+  margin-top: 45px;
+  padding-top: 35px;
+  border-top: 1px solid rgba(216, 137, 170, 0.25);
+}
+
+.price h3 {
+  margin: 0 0 22px;
+  font-family: serif;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 0.18em;
+}
+
+.price p {
+  margin: 8px 0;
+  font-family: serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   BACK
+   ========================= */
+
+.back-button {
+  display: inline-block;
+  margin-top: 45px;
+  padding: 13px 32px;
+  border: 1px solid #d889aa;
+  color: #a56580;
+  background: #fff6f9;
+  text-decoration: none;
+  font-family: serif;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  padding: 0 20px 45px;
+  font-family: serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+/* =========================
+   SMARTPHONE
+   ========================= */
+
+@media screen and (max-width: 700px) {
+
+  .header {
+    padding-top: 28px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .nav {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+  .exhibition {
+    width: calc(100% - 30px);
+    padding-top: 35px;
+  }
+
+  .event-title {
+    font-size: 25px;
+  }
+
+  .event-card {
+    padding: 35px 20px;
+  }
+
+  .event-card h2 {
+    font-size: 21px;
+  }
+
+  .event-info {
+    font-size: 14px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <h1>EXHIBITION</h1>
+  <p>Noctiluca｜綿森りこ</p>
+</header>
+
+<nav class="nav" aria-label="メインメニュー">
+  <a href="index.html">HOME</a>
+  <a href="works.html">WORKS</a>
+  <a href="about.html">ABOUT</a>
+  <a href="exhibition.html">EXHIBITION</a>
+  <a href="shop.html">SHOP</a>
+  <a href="contact.html">CONTACT</a>
+</nav>
+
+<main class="exhibition">
+
+  <h2 class="event-title">DESIGN FESTA</h2>
+  <p class="event-subtitle">EVENT INFORMATION</p>
+
+  <section class="event-card">
+
+    <h2>DESIGN FESTA</h2>
+
+    <p class="event-info">
+      <strong>デザインフェスタに出展します。</strong><br><br>
+      オリジナル作品を展示・販売いたします。<br>
+      小さなキャンバス作品を中心に、<br>
+      一点一点制作した作品をご覧いただけます。
+    </p>
+
+    <!--
+      ※デザフェスの開催日・ブース番号などが決まったら、
+      下の文章を変更してください。
+    -->
+    <p class="event-info">
+      開催日：2026年11月14日（土）<br>
+      会場：東京ビッグサイト<br>
+      ブース：詳細が決まり次第お知らせします
+    </p>
+
+    <p class="message">
+      実物の作品を直接ご覧いただける機会です。<br>
+      お近くにお越しの際は、ぜひお立ち寄りください。
+    </p>
+
+  </section>
+
+  <a href="index.html" class="back-button">BACK TO HOME</a>
+
+</main>
+
+<footer>
+  © Noctiluca｜綿森りこ
+</footer>
+
+</body>
+</html>
