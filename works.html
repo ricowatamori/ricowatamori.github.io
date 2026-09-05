@@ -1042,22 +1042,31 @@ mobileMenu.querySelectorAll("a").forEach(link => {
   
 <script>
  // 作品06〜09をスクロールで「ぽわん」と表示
-const scrollWorks = document.querySelectorAll(".a6, .a7, .a8, .a9");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
+  window.addEventListener("load", () => {
+  const scrollWorks = document.querySelectorAll(".a6, .a7, .a8, .a9");
+
+ <script>
+
+  const scrollWorks = document.querySelectorAll(
+    ".art.a6, .art.a7, .art.a8, .art.a9"
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
   });
-}, {
-  threshold: 0.2
-});
 
-scrollWorks.forEach(work => {
-  observer.observe(work);
-});
+  scrollWorks.forEach(work => {
+    observer.observe(work);
+  });
+
+
+ 
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
