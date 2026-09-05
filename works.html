@@ -1049,33 +1049,36 @@ mobileMenu.querySelectorAll("a").forEach(link => {
 }
 
 /* スクロールでふわっと出現 */
-.gallery .art,
-.gallery .scroll-art {
-  transition:
-    opacity 0.8s ease,
-    transform 1s ease,
-    scale 0.8s ease;
-}
-
-/* スクロール前：少し下に隠れている */
 .gallery .scroll-art {
   opacity: 0;
   transform: translateY(100px) scale(0.82);
   transition:
-    opacity 0.8s ease,
+    opacity 0.85s ease,
     transform 0.9s cubic-bezier(.22, 1, .36, 1);
 }
 
-/* スクロールで「ぽわんっ」と出現 */
+/* 表示された作品 */
 .gallery .scroll-art.show {
   opacity: 1;
-  transform: translateY(0) scale(0.82);
+  transform: translateY(0) scale(1);
 }
-
-/* 最初の5作品以外も、同じ出現感にする */
-.gallery .art.show {
-  opacity: 1 !important;
-  transform: translateY(0) scale(0.82) !important;
+/* 作品：スクロール前は下に隠れている */
+.gallery .scroll-art {
+  opacity: 0;
+  transform: translateY(100px) scale(0.82) rotate(var(--rotation));
+  transition:
+    opacity 0.85s ease,
+    transform 0.9s cubic-bezier(.22, 1, .36, 1);
+}
+.gallery .scroll-art.show {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(var(--rotation));
+}
+    
+/* スクロールすると、下からぽわん */
+.gallery .scroll-art.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 </style>
 
@@ -1134,7 +1137,7 @@ extraWorks.forEach((src, i) => {
 button.style.left = pos.left;
 button.style.top = pos.top;
 button.style.width = pos.size;
-button.style.transform = `translateY(140px) scale(0.72) rotate(${pos.rotate})`;
+button.style.setProperty("--rotation", pos.rotate);
 
   gallery.appendChild(button);
 });
