@@ -1112,226 +1112,32 @@ scrollWorks.forEach(work => {
   observer.observe(work);
 });
    
-</script>
-
-  <style>
-/* スクロールでふわっと現れる追加作品 */
-.scroll-art{
-  position:absolute;
-  width:210px;
-  height:210px;
-  border-radius:50%;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.9);
-  box-shadow:
-    0 10px 24px rgba(164,105,130,.15),
-    inset 0 0 0 5px rgba(255,255,255,.28);
-  opacity:0;
-  transform:translateY(45px) scale(.92);
-  transition:
-    opacity .9s ease,
-    transform 1.1s cubic-bezier(.22,.61,.36,1);
-  pointer-events:none;
-}
-
-.scroll-art.show{
-  opacity:1;
-  transform:translateY(0) scale(1);
-}
-
-.scroll-art img{
-  width:100%;
-  height:100%;
- object-fit: cover;
-  display:block;
-  background:rgba(255,255,255,.16);
-}
-    /* 作品を少し小さくして、泡っぽく */
-.gallery .art,
-.gallery .scroll-art {
-  scale: 0.82;
-}
-
-/* スクロールでふわっと出現 */
-.gallery .scroll-art {
-  opacity: 0;
-  transform: translateY(100px) scale(0.82);
-  transition:
-    opacity 0.85s ease,
-    transform 0.9s cubic-bezier(.22, 1, .36, 1);
-}
-
-/* 表示された作品 */
-.gallery .scroll-art.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-/* 作品：スクロール前は下に隠れている */
-.gallery .scroll-art {
-  opacity: 0;
-  transform: translateY(100px) scale(0.82) rotate(var(--rotation));
-  transition:
-    opacity 0.85s ease,
-    transform 0.9s cubic-bezier(.22, 1, .36, 1);
-}
-.gallery .scroll-art.show {
-  opacity: 1;
-  transform: translateY(0) scale(1) rotate(var(--rotation));
-}
-    
-/* スクロールすると、下からぽわん */
-.gallery .scroll-art.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-    /* 作品06〜09を丸くして、スクロールでぽわん */
+/* 作品06〜09：最初は見えない */
 .art.a6,
 .art.a7,
 .art.a8,
-.art.a9 {
-  border-radius: 50%;
-  overflow: hidden;
+.art.a9,
+.label16,
+.label17,
+.label18,
+.label19 {
   opacity: 0;
-  translate: 0 100px;
-  scale: .72;
-  transition:
-    opacity .9s ease,
-    translate .9s cubic-bezier(.22,1,.36,1),
-    scale .9s cubic-bezier(.22,1,.36,1);
+  transform: translateY(100px) scale(0.72);
 }
 
+/* スクロールでぽわん */
 .art.a6.show,
 .art.a7.show,
 .art.a8.show,
-.art.a9.show {
-  opacity: 1;
-  translate: 0 0;
-  scale: 1;
+.art.a9.show,
+.label16.show,
+.label17.show,
+.label18.show,
+.label19.show {
+  animation: bubbleIn 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
 }
-
-.art.a6 img,
-.art.a7 img,
-.art.a8 img,
-.art.a9 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-</style>
-
-<script>
-const extraWorks = [
-  "IMG_0691 2.jpg",
-  "IMG_0692 2.jpg",
-  "IMG_0693 2.jpg",
-  "IMG_0694 2.jpg",
-  "IMG_0695 2.jpg",
-  "IMG_0696 2.jpg",
-  "IMG_0697 2.jpg",
-  "IMG_0698 2.jpg",
-  "IMG_0699 2.jpg",
-  "IMG_0700 2.jpg"
-];
-
- const positions = [
-
-  {left:"8%",  top:"80px",   size:"180px", rotate:"-4deg"},
-  {left:"42%", top:"220px",  size:"220px", rotate:"3deg"},
-  {left:"73%", top:"120px",  size:"170px", rotate:"-2deg"},
-
-  {left:"20%", top:"470px",  size:"230px", rotate:"4deg"},
-  {left:"55%", top:"520px",  size:"180px", rotate:"-3deg"},
-  {left:"82%", top:"650px",  size:"220px", rotate:"2deg"},
-
-  {left:"5%",  top:"850px",  size:"210px", rotate:"-3deg"},
-  {left:"35%", top:"900px",  size:"250px", rotate:"3deg"},
-  {left:"68%", top:"980px",  size:"190px", rotate:"-4deg"},
-
-  {left:"15%", top:"1250px", size:"180px", rotate:"2deg"},
-  {left:"48%", top:"1300px", size:"230px", rotate:"-2deg"},
-  {left:"78%", top:"1380px", size:"200px", rotate:"4deg"},
-
-  {left:"3%",  top:"1650px", size:"220px", rotate:"-2deg"},
-  {left:"30%", top:"1720px", size:"190px", rotate:"3deg"},
-  {left:"60%", top:"1680px", size:"240px", rotate:"-4deg"},
-
-  {left:"85%", top:"1850px", size:"180px", rotate:"2deg"},
-  {left:"15%", top:"2100px", size:"240px", rotate:"-3deg"},
-  {left:"50%", top:"2200px", size:"200px", rotate:"3deg"},
-  {left:"75%", top:"2350px", size:"230px", rotate:"-2deg"}
-
-];
   
-const gallery = document.querySelector(".gallery");
-
-extraWorks.forEach((src, i) => {
-  const button = document.createElement("div");
-  button.className = "scroll-art";
-  button.innerHTML = `<img src="${src}" alt="作品 ${i + 10}">`;
-
-  const pos = positions[i];
-button.style.setProperty("--rotation", pos.rotate);
-button.style.left = pos.left;
-button.style.top = pos.top;
-button.style.width = pos.size;
-button.style.setProperty("--rotation", pos.rotate);
-
-  gallery.appendChild(button);
-});
-
-const extraArts = document.querySelectorAll(".scroll-art");
-
-// 追加作品を「泡」のように表示
-function updateExtraWorks() {
-  const vh = window.innerHeight;
-
-  extraArts.forEach((art, i) => {
-    const rect = art.getBoundingClientRect();
-
-    // 画面の少し下に来たら、ふわっと出現
-    if (rect.top < vh * 0.92) {
-      art.classList.add("show");
-    }
-  });
-}
-
-// 最初は作品01〜05だけ見せる
-document.querySelectorAll(".art").forEach((art, i) => {
-  if (i >= 5) {
-    art.style.opacity = "0";
-    art.style.pointerEvents = "none";
-    art.style.visibility = "hidden";
-  }
-});
-
-// スクロールで作品06〜09もふわっと出す
-function updateFirstWorks() {
-  const vh = window.innerHeight;
-
-  document.querySelectorAll(".art").forEach((art, i) => {
-    if (i < 5) return;
-
-    const rect = art.getBoundingClientRect();
-
-    if (rect.top < vh * 0.75 && window.scrollY > 100) {
-      art.style.visibility = "visible";
-      art.style.pointerEvents = "auto";
-      art.classList.add("show");
-    }
-  });
-}
-  });
-}
-
-function updateAllWorks() {
-  updateExtraWorks();
-  updateFirstWorks();
-}
-
-window.addEventListener("scroll", updateAllWorks);
-window.addEventListener("resize", updateAllWorks);
-updateAllWorks();
+  
 </script>
   
 </body>
