@@ -14,249 +14,62 @@
     html,
     body {
       margin: 0;
-      min-height: 100%;
+      width: 100%;
+      height: 100%;
     }
 
     body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      font-family: Georgia, "Times New Roman", serif;
-      color: #8f657b;
-
-      /* ピンク＋水色の水彩マーブル */
-      background:
-        radial-gradient(
-          ellipse at 15% 15%,
-          rgba(247, 188, 210, 0.75) 0%,
-          rgba(247, 188, 210, 0.35) 18%,
-          transparent 40%
-        ),
-        radial-gradient(
-          ellipse at 85% 15%,
-          rgba(177, 215, 238, 0.75) 0%,
-          rgba(177, 215, 238, 0.35) 20%,
-          transparent 42%
-        ),
-        radial-gradient(
-          ellipse at 15% 85%,
-          rgba(177, 215, 238, 0.65) 0%,
-          rgba(177, 215, 238, 0.25) 22%,
-          transparent 45%
-        ),
-        radial-gradient(
-          ellipse at 90% 85%,
-          rgba(246, 190, 211, 0.7) 0%,
-          rgba(246, 190, 211, 0.25) 22%,
-          transparent 45%
-        ),
-        radial-gradient(
-          ellipse at 50% 50%,
-          rgba(255, 241, 245, 0.95),
-          rgba(250, 229, 238, 0.85) 45%,
-          rgba(232, 239, 248, 0.9) 100%
-        );
-
-      background-attachment: fixed;
       overflow: hidden;
+      background: #f8e8ed;
+    }
+
+    .thank-you-page {
       position: relative;
+      width: 100vw;
+      height: 100vh;
+
+      background-image: url("thankyou.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    /* 水彩っぽい柔らかなにじみ */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: -15%;
-      pointer-events: none;
+    /* BACK TO HOME のクリック部分 */
+    .home-link {
+      position: absolute;
 
-      background:
-        radial-gradient(
-          ellipse at 30% 30%,
-          rgba(255,255,255,0.7),
-          transparent 28%
-        ),
-        radial-gradient(
-          ellipse at 70% 65%,
-          rgba(255,255,255,0.5),
-          transparent 30%
-        ),
-        radial-gradient(
-          ellipse at 45% 90%,
-          rgba(180,216,240,0.3),
-          transparent 25%
-        );
+      left: 50%;
+      bottom: 24%;
 
-      filter: blur(25px);
-      opacity: 0.9;
-    }
+      transform: translateX(-50%);
 
-    /* 小さな星 */
-    .star-left {
-      position: fixed;
-      left: 14%;
-      top: 24%;
-      font-size: 18px;
-      opacity: 0.45;
-    }
+      width: 280px;
+      height: 65px;
 
-    .star-right {
-      position: fixed;
-      right: 16%;
-      bottom: 25%;
-      font-size: 14px;
-      opacity: 0.4;
-    }
+      display: block;
 
-    /* 月 */
-    .moon {
-      position: fixed;
-      right: 13%;
-      top: 15%;
-      font-size: 27px;
-      opacity: 0.45;
-    }
-
-    .thank-you {
-      position: relative;
-      z-index: 2;
-
-      width: min(90%, 620px);
-      padding: 55px 25px;
-
-      text-align: center;
-    }
-
-    /* 上の飾り */
-    .ornament {
-      margin-bottom: 20px;
-
-      font-size: 15px;
-      letter-spacing: 7px;
-      opacity: 0.65;
-    }
-
-    /* MESSAGE SENT */
-    .small-title {
-      margin-bottom: 16px;
-
-      font-size: 10px;
-      letter-spacing: 5px;
-      font-weight: normal;
-    }
-
-    /* THANK YOU */
-    h1 {
-      margin: 0;
-
-      font-size: clamp(32px, 7vw, 52px);
-      font-weight: normal;
-      letter-spacing: 6px;
-    }
-
-    /* 日本語 */
-    .japanese {
-      margin-top: 22px;
-
-      font-size: 13px;
-      letter-spacing: 2px;
-      line-height: 2;
-    }
-
-    /* メッセージ */
-    .message {
-      margin-top: 28px;
-
-      font-family: sans-serif;
-      font-size: 11px;
-      line-height: 2.2;
-      letter-spacing: 1px;
-    }
-
-    /* 飾り線 */
-    .divider {
-      width: 130px;
-      margin: 32px auto;
-
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: "";
-
-      height: 1px;
-      flex: 1;
-
-      background: rgba(143, 101, 123, 0.35);
-    }
-
-    .star {
-      font-size: 10px;
-      opacity: 0.7;
-    }
-
-    /* HOMEボタン */
-    .home {
-      display: inline-block;
-
-      padding: 12px 30px;
-
-      border: 1px solid rgba(143, 101, 123, 0.4);
-      border-radius: 30px;
-
-      color: #8f657b;
       text-decoration: none;
+      cursor: pointer;
 
-      font-size: 10px;
-      letter-spacing: 3px;
-
-      background: rgba(255,255,255,0.2);
-
-      transition:
-        background 0.3s ease,
-        transform 0.3s ease;
+      /* 見た目は透明 */
+      background: transparent;
     }
 
-    .home:hover {
-      background: rgba(255,255,255,0.5);
-      transform: translateY(-2px);
+    .home-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 40px;
     }
 
-    /* スマホ */
     @media (max-width: 600px) {
 
-      .thank-you {
-        padding: 40px 20px;
+      .thank-you-page {
+        background-size: cover;
       }
 
-      h1 {
-        font-size: 34px;
-        letter-spacing: 5px;
-      }
-
-      .japanese {
-        font-size: 12px;
-      }
-
-      .message {
-        font-size: 10px;
-      }
-
-      .moon {
-        right: 8%;
-        top: 10%;
-      }
-
-      .star-left {
-        left: 8%;
-      }
-
-      .star-right {
-        right: 9%;
+      .home-link {
+        width: 220px;
+        height: 55px;
+        bottom: 20%;
       }
     }
   </style>
@@ -264,40 +77,9 @@
 
 <body>
 
-  <div class="moon">☾</div>
-  <div class="star-left">✦</div>
-  <div class="star-right">✧</div>
+  <main class="thank-you-page">
 
-  <main class="thank-you">
-
-    <div class="ornament">
-      ───　✦　───
-    </div>
-
-    <div class="small-title">
-      MESSAGE SENT
-    </div>
-
-    <h1>
-      THANK YOU
-    </h1>
-
-    <div class="japanese">
-      ご連絡ありがとうございます。
-    </div>
-
-    <div class="message">
-      メッセージを無事受け取りました。<br>
-      お問い合わせいただき、ありがとうございます。
-    </div>
-
-    <div class="divider">
-      <span class="star">✦</span>
-    </div>
-
-    <a href="index.html" class="home">
-      BACK TO HOME　☾
-    </a>
+    <a href="index.html" class="home-link" aria-label="Back to Home"></a>
 
   </main>
 
