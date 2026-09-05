@@ -138,6 +138,11 @@ body {
     height: auto;
   }
 
+  picture {
+  display: block;
+  width: 100%;
+}
+  
   /* PC用の透明リンクを消す */
   .top > .link {
     display: none;
@@ -284,10 +289,16 @@ body {
 
 <div class="top">
 
-  <img
-    class="top-image"
-    src="noctiluca-top.png"
-    alt="Noctiluca 綿森りこ">
+  <picture>
+    <source
+      media="(max-width: 700px)"
+      srcset="noctiluca-mobile.png">
+
+    <img
+      class="top-image"
+      src="noctiluca-top.png"
+      alt="Noctiluca 綿森りこ">
+  </picture>
 
 </div>
 
