@@ -125,16 +125,8 @@ body {
 
 @media screen and (max-width: 700px) {
 
-  /* PC用の透明リンクを消す */
-  .top > .link {
-    display: none;
-  }
-
-  /*
-   * TOP画像は元の縦横比のまま表示。
-   * 絶対に高さを固定しない。
-   */
   .top {
+    position: relative;
     width: 100%;
     max-width: none;
     margin: 0;
@@ -144,30 +136,32 @@ body {
     display: block;
     width: 100%;
     height: auto;
-    max-width: none;
+  }
+
+  /* PC用の透明リンクを消す */
+  .top > .link {
+    display: none;
   }
 
 
-  /* =====================
-     ハンバーガーボタン
-     ===================== */
+  /* ハンバーガーボタン */
 
   .menu-button {
     display: flex;
 
     position: fixed;
-    top: 55px;
+    top: 105px;
     left: 18px;
 
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
 
-    padding: 8px;
+    padding: 10px;
 
-    border: 0;
-    border-radius: 10px;
+    border: none;
+    border-radius: 12px;
 
-    background: rgba(255, 245, 248, 0.82);
+    background: rgba(255, 248, 250, 0.92);
 
     z-index: 1000;
 
@@ -183,13 +177,62 @@ body {
   .menu-button span {
     display: block;
 
-    width: 28px;
+    width: 29px;
     height: 4px;
 
     border-radius: 4px;
 
     background: #d889aa;
   }
+
+
+  /* 開いたときのメニュー */
+
+  .mobile-menu {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 120px 30px 40px;
+
+    background: rgba(255, 246, 249, 0.98);
+
+    z-index: 900;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu a {
+    display: block;
+
+    padding: 20px 10px;
+
+    border-bottom:
+      1px solid rgba(216, 137, 170, 0.25);
+
+    color: #a56580;
+
+    text-decoration: none;
+
+    font-family: serif;
+
+    font-size: 19px;
+
+    letter-spacing: 0.2em;
+
+    text-align: center;
+  }
+
+}
 
 
   /* =====================
