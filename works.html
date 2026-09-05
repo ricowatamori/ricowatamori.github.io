@@ -1184,6 +1184,40 @@ scrollWorks.forEach(work => {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+    /* 作品06〜09を丸くして、スクロールでぽわん */
+.art.a6,
+.art.a7,
+.art.a8,
+.art.a9 {
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0;
+  translate: 0 100px;
+  scale: .72;
+  transition:
+    opacity .9s ease,
+    translate .9s cubic-bezier(.22,1,.36,1),
+    scale .9s cubic-bezier(.22,1,.36,1);
+}
+
+.art.a6.show,
+.art.a7.show,
+.art.a8.show,
+.art.a9.show {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+.art.a6 img,
+.art.a7 img,
+.art.a8 img,
+.art.a9 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 </style>
 
 <script>
