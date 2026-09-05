@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABOUT｜Noctiluca｜綿森りこ</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(255,255,255,.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 28%, rgba(255,255,255,.7) 0 3px, transparent 4px),
+    radial-gradient(circle at 18% 82%, rgba(255,255,255,.55) 0 2px, transparent 3px),
+    #fceff2;
+  background-size: 180px 180px, 250px 250px, 220px 220px;
+  color: #765968;
+  text-align: center;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+  width: 100%;
+  max-width: 1226px;
+  margin: 0 auto;
+  padding: 34px 20px 18px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #765968;
+  font-family: serif;
+  font-size: 38px;
+  font-weight: normal;
+  letter-spacing: .24em;
+}
+
+.header p {
+  margin: 10px 0 0;
+  color: #a56580;
+  font-family: serif;
+  font-size: 13px;
+  letter-spacing: .14em;
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px 28px;
+}
+
+.nav a {
+  color: #8c6375;
+  text-decoration: none;
+  font-family: serif;
+  font-size: 13px;
+  letter-spacing: .13em;
+  transition: opacity .2s ease;
+}
+
+.nav a:hover {
+  opacity: .55;
+}
+
+/* =========================
+   MAIN
+   ========================= */
+
+.about {
+  position: relative;
+  width: min(1080px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 55px 0 110px;
+}
+
+.about-title {
+  margin: 0;
+  color: #765968;
+  font-family: serif;
+  font-size: 38px;
+  font-weight: normal;
+  letter-spacing: .22em;
+}
+
+.about-title::after {
+  content: "✦";
+  display: block;
+  margin: 18px auto 0;
+  color: #c89b82;
+  font-size: 14px;
+}
+
+/* =========================
+   PROFILE
+   ========================= */
+
+.profile {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(360px, 1.15fr);
+  align-items: center;
+  gap: 70px;
+  margin-top: 60px;
+  text-align: left;
+}
+
+.profile-text {
+  padding-left: 20px;
+}
+
+.artist-label {
+  margin: 0 0 8px;
+  color: #c17c91;
+  font-family: cursive;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.artist-name {
+  margin: 0 0 25px;
+  color: #6f5662;
+  font-family: serif;
+  font-size: 38px;
+  font-weight: normal;
+  letter-spacing: .12em;
+}
+
+.artist-name::after {
+  content: "";
+  display: block;
+  width: 38px;
+  margin-top: 14px;
+  border-top: 1px solid #cfa1b1;
+}
+
+.bio {
+  margin: 0;
+  color: #715d66;
+  font-family: serif;
+  font-size: 15px;
+  line-height: 2.25;
+  letter-spacing: .08em;
+}
+
+/* =========================
+   ARTWORKS
+   ========================= */
+
+.work-area {
+  text-align: center;
+}
+
+.work-image {
+  display: block;
+  width: min(100%, 470px);
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(90,60,70,.13);
+}
+
+.work-caption {
+  margin: 22px 0 0;
+  color: #b36f85;
+  font-family: serif;
+  font-size: 19px;
+  letter-spacing: .14em;
+}
+
+.work-caption-en {
+  margin: 9px 0 0;
+  color: #9b7b87;
+  font-family: serif;
+  font-size: 11px;
+  letter-spacing: .28em;
+}
+
+/* =========================
+   DECORATION
+   ========================= */
+
+.about::before {
+  content: "✧";
+  position: absolute;
+  top: 45px;
+  left: 2%;
+  color: rgba(193,124,145,.55);
+  font-size: 25px;
+}
+
+.about::after {
+  content: "✦";
+  position: absolute;
+  top: 95px;
+  right: 4%;
+  color: rgba(200,155,130,.55);
+  font-size: 16px;
+}
+
+.note {
+  margin: 65px auto 0;
+  color: #bd788d;
+  font-family: cursive;
+  font-size: 23px;
+  font-style: italic;
+  letter-spacing: .05em;
+}
+
+.note-en {
+  margin: 12px 0 0;
+  color: #9b7b87;
+  font-family: serif;
+  font-size: 11px;
+  letter-spacing: .35em;
+}
+
+/* =========================
+   BACK / FOOTER
+   ========================= */
+
+.back-button {
+  display: inline-block;
+  margin-top: 55px;
+  padding: 12px 32px;
+  border: 1px solid rgba(216,137,170,.7);
+  border-radius: 999px;
+  color: #a56580;
+  background: rgba(255,250,252,.55);
+  text-decoration: none;
+  font-family: serif;
+  font-size: 13px;
+  letter-spacing: .15em;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.back-button:hover {
+  opacity: .65;
+  transform: translateY(-2px);
+}
+
+footer {
+  padding: 0 20px 45px;
+  color: #8d727c;
+  font-family: serif;
+  font-size: 11px;
+  letter-spacing: .14em;
+}
+
+/* =========================
+   SMARTPHONE
+   ========================= */
+
+@media screen and (max-width: 700px) {
+
+  .header {
+    padding-top: 28px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .nav {
+    gap: 17px;
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    font-size: 11px;
+  }
+
+  .about {
+    width: calc(100% - 28px);
+    padding-top: 35px;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .profile {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    margin-top: 48px;
+  }
+
+  .profile-text {
+    padding-left: 8px;
+    text-align: left;
+  }
+
+  .artist-label {
+    font-size: 19px;
+  }
+
+  .artist-name {
+    font-size: 31px;
+  }
+
+  .bio {
+    font-size: 14px;
+    line-height: 2.05;
+  }
+
+  .work-area {
+    padding: 0 8px;
+  }
+
+  .work-image {
+    width: 92%;
+  }
+
+  .work-caption {
+    font-size: 17px;
+  }
+
+  .note {
+    font-size: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <h1>ABOUT</h1>
+  <p>Noctiluca｜綿森りこ</p>
+</header>
+
+<nav class="nav" aria-label="メインメニュー">
+  <a href="index.html">HOME</a>
+  <a href="works.html">WORKS</a>
+  <a href="about.html">ABOUT</a>
+  <a href="exhibition.html">EXHIBITION</a>
+  <a href="shop.html">SHOP</a>
+  <a href="contact.html">CONTACT</a>
+</nav>
+
+<main class="about">
+
+  <h2 class="about-title">ABOUT</h2>
+
+  <section class="profile">
+
+    <div class="profile-text">
+      <p class="artist-label">Artist</p>
+      <h3 class="artist-name">綿森りこ</h3>
+
+      <p class="bio">
+        昔から絵を描くことが好きで、<br>
+        さまざまな画材を使って創作しています。<br><br>
+
+        デジタルイラスト、アクリル絵の具、<br>
+        水彩色鉛筆、オイルパステルなど、<br>
+        その作品に合う表現を探しながら制作しています。<br><br>
+
+        特に好きなのは、アクリル絵の具の<br>
+        ぼこぼことした質感。<br>
+        色だけでなく、絵の具そのものの質感も楽しみながら、<br>
+        作品を制作しています。
+      </p>
+    </div>
+
+    <div class="work-area">
+      <img
+        class="work-image"
+        src="about-works.jpg"
+        alt="アクリル絵の具の質感を生かした作品">
+      <p class="work-caption">小さなキャンバスに、少しの物語。</p>
+      <p class="work-caption-en">A small canvas, a little story.</p>
+    </div>
+
+  </section>
+
+  <p class="note">Thank you for visiting!</p>
+  <p class="note-en">MAY A LITTLE LIGHT REACH YOUR HEART.</p>
+
+  <a href="index.html" class="back-button">BACK TO HOME</a>
+
+</main>
+
+<footer>
+  © Noctiluca｜綿森りこ
+</footer>
+
+</body>
+</html>
