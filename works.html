@@ -1038,13 +1038,6 @@ mobileMenu.querySelectorAll("a").forEach(link => {
   });
 });
 
- 
-  
-<script>
- // 作品06〜09をスクロールで「ぽわん」と表示
-
-  window.addEventListener("load", () => {
-  const scrollWorks = document.querySelectorAll(".a6, .a7, .a8, .a9");
 
  <script>
 
@@ -1106,6 +1099,24 @@ mobileMenu.querySelectorAll("a").forEach(link => {
     mobileMenu.classList.remove("open");
   });
 });
+   // 作品06〜09をスクロールで「ぽわん」と表示
+const scrollWorks = document.querySelectorAll(".a6, .a7, .a8, .a9");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+scrollWorks.forEach(work => {
+  observer.observe(work);
+});
+   
 </script>
 
   <style>
