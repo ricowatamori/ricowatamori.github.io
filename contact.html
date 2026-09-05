@@ -749,7 +749,7 @@ textarea:focus{
 
 <main class="contact-wrap">
 
-  <form action="https://formspree.io/f/xbgjknyo" method="POST">
+  <form id="contact-form">
 
     <div class="form-group">
 
@@ -851,6 +851,23 @@ mobileMenu.querySelectorAll("a").forEach(link => {
 
 
 </script>
+<script>
+  window.formspree =
+    window.formspree ||
+    function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
 
+  formspree('initForm', {
+    formElement: '#contact-form',
+    formId: 'xbgjknyo',
+
+    onSuccess: function () {
+      window.location.href = 'thanks.html';
+    }
+  });
+</script>
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
