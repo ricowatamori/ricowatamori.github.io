@@ -186,7 +186,7 @@ header{
   position:relative;
   z-index:6;
   width:min(1160px,92vw);
-  min-height:1030px;
+  min-height:2380px;
   margin:25px auto 0;
 }
 
@@ -202,9 +202,9 @@ header{
     inset 0 0 0 5px rgba(255,255,255,.28);
   cursor:pointer;
   transition:transform .45s ease, box-shadow .45s ease;
+  padding:0;
 }
 
-/* スクロールで、泡のように下から「ぽよん〜」と上がってくる */
 .art.scroll-art{
   opacity:0;
   transform:translateY(120px) scale(.75);
@@ -235,40 +235,34 @@ header{
   }
 }
 
-/* 一個ずつ少しだけ時間差をつける */
-.a1.scroll-art{animation-delay:0s}
-.a2.scroll-art{animation-delay:.08s}
-.a3.scroll-art{animation-delay:.16s}
-.a4.scroll-art{animation-delay:.06s}
-.a5.scroll-art{animation-delay:.14s}
-.a6.scroll-art{animation-delay:.22s}
-.a7.scroll-art{animation-delay:.08s}
-.a8.scroll-art{animation-delay:.16s}
-.a9.scroll-art{animation-delay:.24s}
+/* 作品ごとに大きさを変えて、泡のように散らす */
+.a1{width:280px;height:280px;left:6%;top:25px}
+.a2{width:205px;height:205px;left:48%;top:5px}
+.a3{width:145px;height:145px;right:5%;top:145px}
 
-.art:hover{
-  transform:scale(1.035);
-  box-shadow:
-    0 15px 34px rgba(164,105,130,.22),
-    inset 0 0 0 5px rgba(255,255,255,.4);
-}
-.art img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:contain;
-  background:rgba(255,255,255,.16);
-}
+.a4{width:170px;height:170px;left:1%;top:385px}
+.a5{width:250px;height:250px;left:36%;top:330px}
+.a6{width:190px;height:190px;right:6%;top:395px}
 
-.a1{width:280px;height:280px;left:8%;top:30px}
-.a2{width:220px;height:220px;left:50%;top:15px}
-.a3{width:155px;height:155px;right:6%;top:165px}
-.a4{width:165px;height:165px;left:2%;top:425px}
-.a5{width:270px;height:270px;left:35%;top:365px}
-.a6{width:205px;height:205px;right:8%;top:425px}
-.a7{width:180px;height:180px;left:12%;top:690px}
-.a8{width:160px;height:160px;left:44%;top:745px}
-.a9{width:205px;height:205px;right:18%;top:700px}
+.a7{width:150px;height:150px;left:10%;top:670px}
+.a8{width:220px;height:220px;left:43%;top:650px}
+.a9{width:175px;height:175px;right:12%;top:700px}
+
+.a10{width:135px;height:135px;left:2%;top:940px}
+.a11{width:285px;height:285px;left:29%;top:900px}
+.a12{width:155px;height:155px;right:4%;top:1000px}
+
+.a13{width:205px;height:205px;left:8%;top:1240px}
+.a14{width:145px;height:145px;left:48%;top:1255px}
+.a15{width:250px;height:250px;right:6%;top:1200px}
+
+.a16{width:165px;height:165px;left:2%;top:1540px}
+.a17{width:225px;height:225px;left:36%;top:1510px}
+.a18{width:140px;height:140px;right:14%;top:1600px}
+
+.a19{width:275px;height:275px;left:42%;top:1810px}
+
+/* ラベル */
 .label{
   position:absolute;
   z-index:7;
@@ -278,16 +272,34 @@ header{
   text-align:center;
   white-space:nowrap;
 }
-.l1{left:17%;top:344px}
-.l2{left:61%;top:266px}
-.l3{right:7%;top:347px}
-.l4{left:5%;top:615px}
-.l5{left:48%;top:675px}
-.l6{right:9%;top:675px}
-.l7{left:17%;top:910px}
-.l8{left:47%;top:940px}
-.l9{right:19%;top:945px}
 
+.l1{left:15%;top:315px}
+.l2{left:55%;top:220px}
+.l3{right:3%;top:300px}
+
+.l4{left:5%;top:575px}
+.l5{left:45%;top:595px}
+.l6{right:8%;top:600px}
+
+.l7{left:13%;top:845px}
+.l8{left:47%;top:890px}
+.l9{right:13%;top:900px}
+
+.l10{left:1%;top:1100px}
+.l11{left:43%;top:1210px}
+.l12{right:3%;top:1175px}
+
+.l13{left:12%;top:1460px}
+.l14{left:52%;top:1420px}
+.l15{right:13%;top:1470px}
+
+.l16{left:5%;top:1760px}
+.l17{left:44%;top:1760px}
+.l18{right:10%;top:1780px}
+
+.l19{left:49%;top:2110px}
+
+/* 飾り */
 .bubble{
   position:absolute;
   z-index:4;
@@ -307,57 +319,19 @@ header{
 }
 .s1{left:41%;top:390px}.s2{right:29%;top:315px}.s3{left:73%;top:620px}.s4{left:3%;top:675px}
 
-.bottom{
-  position:relative;
-  z-index:8;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  padding:0 5.5vw 35px;
-  margin-top:-5px;
+.art:hover{
+  transform:scale(1.035);
+  box-shadow:
+    0 15px 34px rgba(164,105,130,.22),
+    inset 0 0 0 5px rgba(255,255,255,.4);
 }
-.brand{
-  font-family:"Cormorant Garamond",serif;
-  font-size:30px;
-  letter-spacing:.05em;
-}
-.brand small{
+
+.art img{
+  width:100%;
+  height:100%;
   display:block;
-  font-size:10px;
-  letter-spacing:.28em;
-  margin-top:4px;
-}
-.tags{
-  font-family:"Cormorant Garamond",serif;
-  font-size:11px;
-  letter-spacing:.25em;
-  line-height:1.9;
-  text-align:right;
-}
-.home{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:25px;
-  z-index:10;
-  padding:12px 42px;
-  border:1px solid var(--rose-soft);
-  border-radius:999px;
-  color:var(--rose);
-  text-decoration:none;
-  font-family:"Cormorant Garamond",serif;
-  letter-spacing:.28em;
-  font-size:12px;
-  background:rgba(255,245,247,.18);
-}
-footer{
-  position:relative;
-  z-index:8;
-  text-align:center;
-  padding:0 0 18px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:10px;
-  letter-spacing:.18em;
+  object-fit:contain;
+  background:rgba(255,255,255,.16);
 }
 
 .modal{
@@ -432,24 +406,49 @@ footer{
   .jp{font-size:18px}
   .sub{font-size:10px;letter-spacing:.22em}
   .side{display:none}
+
   .gallery{
     width:94vw;
-    min-height:1040px;
+    min-height:2250px;
     margin-top:20px;
   }
-  .a1{width:210px;height:210px;left:2%;top:15px}
-  .a2{width:160px;height:160px;right:3%;left:auto;top:40px}
-  .a3{width:120px;height:120px;right:4%;top:240px}
-  .a4{width:135px;height:135px;left:1%;top:300px}
-  .a5{width:200px;height:200px;left:29%;top:255px}
-  .a6{width:155px;height:155px;right:2%;top:465px}
-  .a7{width:145px;height:145px;left:4%;top:555px}
-  .a8{width:125px;height:125px;left:38%;top:700px}
-  .a9{width:160px;height:160px;right:6%;top:670px}
+
+  /* スマホでも大小バラバラの泡 */
+  .a1{width:190px;height:190px;left:2%;top:15px}
+  .a2{width:135px;height:135px;right:3%;left:auto;top:35px}
+  .a3{width:105px;height:105px;right:5%;top:235px}
+
+  .a4{width:125px;height:125px;left:1%;top:285px}
+  .a5{width:175px;height:175px;left:30%;top:255px}
+  .a6{width:140px;height:140px;right:2%;top:465px}
+
+  .a7{width:115px;height:115px;left:4%;top:535px}
+  .a8{width:155px;height:155px;left:39%;top:570px}
+  .a9{width:125px;height:125px;right:5%;top:700px}
+
+  .a10{width:100px;height:100px;left:1%;top:770px}
+  .a11{width:185px;height:185px;left:29%;top:820px}
+  .a12{width:115px;height:115px;right:2%;top:900px}
+
+  .a13{width:145px;height:145px;left:5%;top:1060px}
+  .a14{width:105px;height:105px;left:49%;top:1100px}
+  .a15{width:175px;height:175px;right:3%;top:1190px}
+
+  .a16{width:120px;height:120px;left:2%;top:1360px}
+  .a17{width:160px;height:160px;left:35%;top:1430px}
+  .a18{width:100px;height:100px;right:6%;top:1510px}
+
+  .a19{width:190px;height:190px;left:35%;top:1700px}
+
   .label{font-size:9px}
-  .l1{left:12%;top:235px}.l2{left:53%;top:207px}.l3{right:5%;top:365px}
-  .l4{left:3%;top:445px}.l5{left:42%;top:465px}.l6{right:5%;top:635px}
-  .l7{left:12%;top:710px}.l8{left:42%;top:840px}.l9{right:10%;top:840px}
+  .l1{left:12%;top:215px}.l2{left:54%;top:180px}.l3{right:4%;top:345px}
+  .l4{left:3%;top:425px}.l5{left:39%;top:440px}.l6{right:4%;top:615px}
+  .l7{left:10%;top:670px}.l8{left:40%;top:735px}.l9{right:5%;top:845px}
+  .l10{left:1%;top:895px}.l11{left:40%;top:1020px}.l12{right:2%;top:1040px}
+  .l13{left:10%;top:1220px}.l14{left:47%;top:1230px}.l15{right:5%;top:1400px}
+  .l16{left:4%;top:1510px}.l17{left:40%;top:1640px}.l18{right:5%;top:1630px}
+  .l19{left:42%;top:1910px}
+
   .bottom{padding:0 20px 80px}
   .brand{font-size:22px}
   .tags{font-size:8px}
@@ -457,8 +456,7 @@ footer{
   .modal-box{grid-template-columns:1fr;max-height:90vh;overflow:auto}
   .modal-image{min-height:320px}
   .modal-info{padding:25px}
-}
-</style>
+}</style>
 </head>
 
 <body>
@@ -492,31 +490,68 @@ footer{
   </div>
   <div class="side right">やさしい色が、こころのどこかを灯す。</div>
 
-  <main class="gallery">
+<main class="gallery">
     <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
     <div class="bubble b4"></div><div class="bubble b5"></div>
     <div class="spark s1">✦</div><div class="spark s2">✦</div>
     <div class="spark s3">✦</div><div class="spark s4">✦</div>
 
-    <button class="art scroll-art a1" data-index="0"><img src="IMG_0701 2.jpg" alt="作品 01"></button>
-    <button class="art scroll-art a2" data-index="1"><img src="IMG_0702 2.jpg" alt="作品 02"></button>
-    <button class="art scroll-art a3" data-index="2"><img src="IMG_0703 2.jpg" alt="作品 03"></button>
-    <button class="art scroll-art a4" data-index="3"><img src="IMG_0704 2.jpg" alt="作品 04"></button>
-    <button class="art scroll-art a5" data-index="4"><img src="IMG_0705 2.jpg" alt="作品 05"></button>
-    <button class="art scroll-art a6" data-index="5"><img src="IMG_0706 2.jpg" alt="作品 06"></button>
-    <button class="art scroll-art a7" data-index="6"><img src="IMG_0707 2.jpg" alt="作品 07"></button>
-    <button class="art scroll-art a8" data-index="7"><img src="IMG_0708 2.jpg" alt="作品 08"></button>
-    <button class="art scroll-art a9" data-index="8"><img src="IMG_0709 2.jpg" alt="作品 09"></button>
-
+    <button class="art scroll-art a1" data-index="0"><img src="IMG_0691 2.jpg" alt="作品 01"></button>
     <div class="label l1">WORK 01<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a2" data-index="1"><img src="IMG_0692 2.jpg" alt="作品 02"></button>
     <div class="label l2">WORK 02<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a3" data-index="2"><img src="IMG_0693 2.jpg" alt="作品 03"></button>
     <div class="label l3">WORK 03<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a4" data-index="3"><img src="IMG_0694 2.jpg" alt="作品 04"></button>
     <div class="label l4">WORK 04<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a5" data-index="4"><img src="IMG_0695 2.jpg" alt="作品 05"></button>
     <div class="label l5">WORK 05<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a6" data-index="5"><img src="IMG_0696 2.jpg" alt="作品 06"></button>
     <div class="label l6">WORK 06<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a7" data-index="6"><img src="IMG_0697 2.jpg" alt="作品 07"></button>
     <div class="label l7">WORK 07<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a8" data-index="7"><img src="IMG_0698 2.jpg" alt="作品 08"></button>
     <div class="label l8">WORK 08<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a9" data-index="8"><img src="IMG_0699 2.jpg" alt="作品 09"></button>
     <div class="label l9">WORK 09<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a10" data-index="9"><img src="IMG_0700 2.jpg" alt="作品 10"></button>
+    <div class="label l10">WORK 10<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a11" data-index="10"><img src="IMG_0701 2.jpg" alt="作品 11"></button>
+    <div class="label l11">WORK 11<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a12" data-index="11"><img src="IMG_0702 2.jpg" alt="作品 12"></button>
+    <div class="label l12">WORK 12<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a13" data-index="12"><img src="IMG_0703 2.jpg" alt="作品 13"></button>
+    <div class="label l13">WORK 13<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a14" data-index="13"><img src="IMG_0704 2.jpg" alt="作品 14"></button>
+    <div class="label l14">WORK 14<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a15" data-index="14"><img src="IMG_0705 2.jpg" alt="作品 15"></button>
+    <div class="label l15">WORK 15<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a16" data-index="15"><img src="IMG_0706 2.jpg" alt="作品 16"></button>
+    <div class="label l16">WORK 16<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a17" data-index="16"><img src="IMG_0707 2.jpg" alt="作品 17"></button>
+    <div class="label l17">WORK 17<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a18" data-index="17"><img src="IMG_0708 2.jpg" alt="作品 18"></button>
+    <div class="label l18">WORK 18<br><span>PAINTING</span></div>
+
+    <button class="art scroll-art a19" data-index="18"><img src="IMG_0709 2.jpg" alt="作品 19"></button>
+    <div class="label l19">WORK 19<br><span>PAINTING</span></div>
   </main>
 
   <div class="bottom">
@@ -548,6 +583,11 @@ const close = document.getElementById("close");
 
 /* 作品が画面に入ったら、下から「ぽよん〜」と一度だけ出す */
 const scrollWorks = document.querySelectorAll(".scroll-art");
+
+scrollWorks.forEach(work => {
+  const index = Number(work.dataset.index || 0);
+  work.style.animationDelay = (index % 3) * 0.08 + "s";
+});
 
 const worksObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
