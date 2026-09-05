@@ -30,6 +30,7 @@ body {
   text-align: center;
 }
 
+
 /* =========================
    TOP
    ========================= */
@@ -44,9 +45,9 @@ body {
 .top-image {
   display: block;
   width: 100%;
-  max-width: 100%;
   height: auto;
 }
+
 
 /* =========================
    PC用リンク
@@ -100,7 +101,6 @@ body {
   height: 4%;
 }
 
-/* マウスを乗せたとき */
 .link:hover {
   background: rgba(255, 255, 255, 0.08);
 }
@@ -110,10 +110,11 @@ body {
    スマホ用メニュー
    ========================= */
 
-/* PCでは表示しない */
-.menu-button,
-.mobile-menu,
-.mobile-nav-cover {
+.menu-button {
+  display: none;
+}
+
+.mobile-menu {
   display: none;
 }
 
@@ -124,12 +125,15 @@ body {
 
 @media screen and (max-width: 700px) {
 
-  /* PC用リンクを消す */
+  /* PC用の透明リンクを消す */
   .top > .link {
     display: none;
   }
 
-  /* TOP画像はそのまま縮小 */
+  /*
+   * TOP画像は元の縦横比のまま表示。
+   * 絶対に高さを固定しない。
+   */
   .top {
     width: 100%;
     max-width: none;
@@ -139,75 +143,58 @@ body {
   .top-image {
     display: block;
     width: 100%;
-    max-width: 100%;
     height: auto;
+    max-width: none;
   }
 
 
-  /* -------------------------
-     上部の元ナビを隠す
-     ------------------------- */
-
-  .mobile-nav-cover {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 72px;
-
-    background: rgba(252, 239, 242, 0.94);
-
-    z-index: 80;
-  }
-
-
-  /* -------------------------
+  /* =====================
      ハンバーガーボタン
-     ------------------------- */
+     ===================== */
 
   .menu-button {
     display: flex;
 
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 55px;
+    left: 18px;
 
     width: 48px;
     height: 48px;
 
-    padding: 10px;
+    padding: 8px;
 
-    border: none;
-    background: transparent;
+    border: 0;
+    border-radius: 10px;
 
-    z-index: 100;
+    background: rgba(255, 245, 248, 0.82);
+
+    z-index: 1000;
 
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    gap: 5px;
+    gap: 6px;
 
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
   }
 
   .menu-button span {
     display: block;
 
-    width: 27px;
-    height: 3px;
+    width: 28px;
+    height: 4px;
 
-    border-radius: 3px;
+    border-radius: 4px;
 
-    background: #d889a6;
+    background: #d889aa;
   }
 
 
-  /* -------------------------
-     メニュー本体
-     ------------------------- */
+  /* =====================
+     開いたメニュー
+     ===================== */
 
   .mobile-menu {
     display: none;
@@ -218,62 +205,51 @@ body {
     left: 0;
 
     width: 100%;
+    min-height: 100vh;
 
-    padding: 82px 30px 30px;
+    padding: 110px 30px 40px;
 
-    background: rgba(255, 245, 248, 0.98);
+    background: rgba(255, 246, 249, 0.98);
 
-    z-index: 90;
-
-    box-shadow:
-      0 5px 20px rgba(150, 100, 120, 0.15);
+    z-index: 900;
   }
-
-
-  /* メニューを開いた状態 */
 
   .mobile-menu.open {
     display: flex;
 
     flex-direction: column;
 
+    justify-content: flex-start;
+
     gap: 0;
   }
 
 
-  /* メニュー項目 */
+  /* メニュー文字 */
 
   .mobile-menu a {
     display: block;
 
-    padding: 18px 10px;
+    padding: 20px 10px;
 
     border-bottom:
-      1px solid rgba(217, 140, 168, 0.25);
+      1px solid rgba(216, 137, 170, 0.25);
 
-    color: #9d6680;
+    color: #a56580;
 
     text-decoration: none;
 
-    font-size: 18px;
+    font-family: serif;
 
-    letter-spacing: 0.18em;
+    font-size: 19px;
+
+    letter-spacing: 0.2em;
 
     text-align: center;
   }
 
-
-  /* 最後の線を消す */
-
-  .mobile-menu a:last-child {
-    border-bottom: none;
-  }
-
-
-  /* タップ時の反応 */
-
   .mobile-menu a:active {
-    background: rgba(217, 140, 168, 0.08);
+    background: rgba(216, 137, 170, 0.08);
   }
 
 }
@@ -286,12 +262,12 @@ body {
 
 
 <!-- =========================
-     スマホ用ハンバーガーメニュー
+     スマホ用ハンバーガー
      ========================= -->
 
 <button
   class="menu-button"
-  aria-label="メニューを開く"
+  aria-label="メニュー"
   aria-expanded="false">
 
   <span></span>
@@ -301,35 +277,26 @@ body {
 </button>
 
 
-<!-- スマホで元画像のナビ文字を隠す部分 -->
-
-<div class="mobile-nav-cover"></div>
-
-
-<!-- スマホ用メニュー -->
+<!-- =========================
+     スマホ用メニュー
+     ========================= -->
 
 <nav
   class="mobile-menu"
   aria-label="スマートフォン用メニュー">
 
   <a href="index.html">HOME</a>
-
   <a href="works.html">WORKS</a>
-
   <a href="about.html">ABOUT</a>
-
   <a href="exhibition.html">EXHIBITION</a>
-
   <a href="shop.html">SHOP</a>
-
   <a href="contact.html">CONTACT</a>
 
 </nav>
 
 
-
 <!-- =========================
-     TOP画像
+     TOP
      ========================= -->
 
 <div class="top">
@@ -339,52 +306,8 @@ body {
     src="noctiluca-top.png"
     alt="Noctiluca 綿森りこ">
 
-
-  <!-- PC用透明リンク -->
-
-  <a
-    class="link home"
-    href="index.html"
-    aria-label="HOME">
-  </a>
-
-  <a
-    class="link works"
-    href="works.html"
-    aria-label="WORKS">
-  </a>
-
-  <a
-    class="link about"
-    href="about.html"
-    aria-label="ABOUT">
-  </a>
-
-  <a
-    class="link exhibition"
-    href="exhibition.html"
-    aria-label="EXHIBITION">
-  </a>
-
-  <a
-    class="link shop"
-    href="shop.html"
-    aria-label="SHOP">
-  </a>
-
-  <a
-    class="link contact"
-    href="contact.html"
-    aria-label="CONTACT">
-  </a>
-
 </div>
 
-
-
-<!-- =========================
-     メニュー操作
-     ========================= -->
 
 <script>
 
@@ -395,7 +318,7 @@ const mobileMenu =
   document.querySelector('.mobile-menu');
 
 
-menuButton.addEventListener('click', function() {
+menuButton.addEventListener('click', function () {
 
   const isOpen =
     mobileMenu.classList.toggle('open');
@@ -408,14 +331,14 @@ menuButton.addEventListener('click', function() {
 });
 
 
-/* メニュー項目を押したら閉じる */
+/* メニューを選んだら閉じる */
 
 const menuLinks =
   document.querySelectorAll('.mobile-menu a');
 
-menuLinks.forEach(function(link) {
+menuLinks.forEach(function (link) {
 
-  link.addEventListener('click', function() {
+  link.addEventListener('click', function () {
 
     mobileMenu.classList.remove('open');
 
