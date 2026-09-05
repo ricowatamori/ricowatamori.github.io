@@ -852,22 +852,31 @@ mobileMenu.querySelectorAll("a").forEach(link => {
 
 </script>
 <script>
-  window.formspree =
-    window.formspree ||
-    function () {
-      (formspree.q = formspree.q || []).push(arguments);
-    };
+  const contactForm = document.getElementById("contact-form");
 
-  formspree('initForm', {
-    formElement: '#contact-form',
-    formId: 'xbgjknyo',
+  contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-    onSuccess: function () {
-      window.location.href = 'thanks.html';
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+
+      if (response.ok) {
+        window.location.href = "thanks.html";
+      } else {
+        alert("送信できませんでした。もう一度お試しください。");
+      }
+    } catch (error) {
+      alert("送信できませんでした。通信状態をご確認ください。");
     }
   });
 </script>
-
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
