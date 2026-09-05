@@ -31,16 +31,39 @@
       height: auto;
       max-width: 100%;
     }
+ .thank-you-page {
+  position: relative;
+  width: 100%;
+}
+  .home-link {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 65px;
+  display: block;
+}
   </style>
 </head>
 
 <body>
 
-  <img
-    src="Thankyou.png"
-    alt="MESSAGE SENT / THANK YOU"
-    class="thank-you-image"
-  >
+  <div class="thank-you-page">
+
+    <img
+      src="Thankyou.png"
+      alt="MESSAGE SENT / THANK YOU"
+      class="thank-you-image"
+    >
+
+    <a
+      href="index.html"
+      class="home-link"
+      aria-label="Back to Home"
+    ></a>
+
+  </div>
 
 </body>
 </html>
