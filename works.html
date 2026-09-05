@@ -435,7 +435,18 @@ footer{
 
   .art{
     position:absolute;
+    overflow:hidden;
+    border-radius:50%;
   }
+
+  .art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+
+  /* 作品配置 */
 
   .a1{
     width:30vw;
@@ -501,47 +512,104 @@ footer{
     top:101vw;
   }
 
+
+  /* 作品タイトル */
+
   .label{
     font-size:9px;
   }
 
-}
-  
-  .a1{width:210px;height:210px;left:2%;top:15px}
-  .a2{width:160px;height:160px;right:3%;left:auto;top:40px}
-  .a3{width:120px;height:120px;right:4%;top:240px}
-  .a4{width:135px;height:135px;left:1%;top:300px}
-  .a5{width:200px;height:200px;left:29%;top:255px}
-  .a6{width:155px;height:155px;right:2%;top:465px}
-  .a7{width:145px;height:145px;left:4%;top:555px}
-  .a8{width:125px;height:125px;left:38%;top:700px}
-  .a9{width:160px;height:160px;right:6%;top:670px}
-  .label{font-size:9px}
-  .l1{left:12%;top:235px}.l2{left:53%;top:207px}.l3{right:5%;top:365px}
-  .l4{left:3%;top:445px}.l5{left:42%;top:465px}.l6{right:5%;top:635px}
-  .l7{left:12%;top:710px}.l8{left:42%;top:840px}.l9{right:10%;top:840px}
-  .bottom{padding:0 20px 80px}
-  .brand{font-size:22px}
-  .tags{font-size:8px}
-  .home{bottom:35px;padding:10px 25px;font-size:10px}
-  .modal-box{grid-template-columns:1fr;max-height:90vh;overflow:auto}
-  .modal-image{min-height:320px}
-  .modal-info{padding:25px}
-    .art img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-    }
+  .l1{
+    left:12%;
+    top:32vw;
+  }
 
-    .art{
-        overflow:hidden;
-        border-radius:50%;
-    }
+  .l2{
+    left:53%;
+    top:32vw;
+  }
 
-    .gallery{
-        margin-left:auto;
-        margin-right:auto;
-    }
+  .l3{
+    right:5%;
+    top:58vw;
+  }
+
+  .l4{
+    left:3%;
+    top:66vw;
+  }
+
+  .l5{
+    left:42%;
+    top:63vw;
+  }
+
+  .l6{
+    right:5%;
+    top:90vw;
+  }
+
+  .l7{
+    left:12%;
+    top:102vw;
+  }
+
+  .l8{
+    left:42%;
+    top:97vw;
+  }
+
+  .l9{
+    right:10%;
+    top:126vw;
+  }
+
+
+  /* 下部 */
+
+  .bottom{
+    padding:0 20px 80px;
+    margin-top:0;
+  }
+
+  .brand{
+    font-size:22px;
+  }
+
+  .tags{
+    font-size:8px;
+  }
+
+  .home{
+    bottom:35px;
+    padding:10px 25px;
+    font-size:10px;
+  }
+
+
+  /* =========================
+     スマホ用作品拡大
+     ========================= */
+
+  .modal-box{
+    grid-template-columns:1fr;
+    max-height:90vh;
+    overflow:auto;
+  }
+
+  .modal-image{
+    min-height:320px;
+  }
+
+  .modal-info{
+    padding:25px;
+  }
+
+  .gallery{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
 }
 </style>
 </head>
