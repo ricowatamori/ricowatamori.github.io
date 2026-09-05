@@ -889,7 +889,13 @@ footer{
 .a6,
 .a7,
 .a8,
-.a9 {
+.a9,
+.a10,
+.a11,
+.a12,
+.a13,
+.a14,
+.a15 {
   opacity: 0;
   transform: translateY(100px) scale(0.72);
 }
@@ -897,7 +903,13 @@ footer{
 .a6.show,
 .a7.show,
 .a8.show,
-.a9.show {
+.a9.show,
+.a10.show,
+.a11.show,
+.a12.show,
+.a13.show,
+.a14.show,
+.a15.show {
   animation: bubbleIn 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
@@ -1036,9 +1048,10 @@ mobileMenu.querySelectorAll("a").forEach(link => {
 });
 
 
-// 作品06〜09をスクロールで「ぽわん」と表示
+// 作品06〜15をスクロールで「ぽわん」と表示
 const scrollWorks = document.querySelectorAll(
-  ".art.a6, .art.a7, .art.a8, .art.a9"
+  ".art.a6, .art.a7, .art.a8, .art.a9, .art.a10, .art.a11, .art.a12, .art.a13, .art.a14, .art.a15"
+);
 );
 
 const observer = new IntersectionObserver((entries) => {
