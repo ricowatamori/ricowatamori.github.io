@@ -1056,18 +1056,25 @@ mobileMenu.querySelectorAll("a").forEach(link => {
     scale 0.8s ease;
 }
 
-/* 泡が浮かび上がる */
-.gallery .show {
-  animation: bubbleFloat 5s ease-in-out infinite;
+/* スクロール前：少し下に隠れている */
+.gallery .scroll-art {
+  opacity: 0;
+  transform: translateY(100px) scale(0.82);
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(.22, 1, .36, 1);
 }
 
-@keyframes bubbleFloat {
-  0%, 100% {
-    margin-top: 0;
-  }
-  50% {
-    margin-top: -10px;
-  }
+/* スクロールで「ぽわんっ」と出現 */
+.gallery .scroll-art.show {
+  opacity: 1;
+  transform: translateY(0) scale(0.82);
+}
+
+/* 最初の5作品以外も、同じ出現感にする */
+.gallery .art.show {
+  opacity: 1 !important;
+  transform: translateY(0) scale(0.82) !important;
 }
 </style>
 
@@ -1165,12 +1172,13 @@ function updateFirstWorks() {
 
     const rect = art.getBoundingClientRect();
 
-    if (rect.top < vh * 0.9) {
+    if (rect.top < vh * 0.75 && window.scrollY > 100) {
       art.style.visibility = "visible";
       art.style.pointerEvents = "auto";
-      art.style.opacity = "1";
       art.classList.add("show");
     }
+  });
+}
   });
 }
 
