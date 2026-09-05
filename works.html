@@ -1133,7 +1133,7 @@ extraWorks.forEach((src, i) => {
   button.innerHTML = `<img src="${src}" alt="作品 ${i + 10}">`;
 
   const pos = positions[i];
-
+button.style.setProperty("--rotation", pos.rotate);
 button.style.left = pos.left;
 button.style.top = pos.top;
 button.style.width = pos.size;
